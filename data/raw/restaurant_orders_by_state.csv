@@ -1,0 +1,201 @@
+Order_ID,Customer_Name,State,Menu_Item,Quantity,Price_Per_Item,Total_Price
+ORD0001,Customer_1,Puducherry,Chole Bhature,5,275,1375
+ORD0002,Customer_2,Bihar,Fish Curry,4,142,568
+ORD0003,Customer_3,Haryana,Chicken Biryani,2,456,912
+ORD0004,Customer_4,Andhra Pradesh,Momos,3,352,1056
+ORD0005,Customer_5,Sikkim,Paneer Butter Masala,3,257,771
+ORD0006,Customer_6,Gujarat,Paneer Butter Masala,1,471,471
+ORD0007,Customer_7,Uttarakhand,Chicken Biryani,3,228,684
+ORD0008,Customer_8,Punjab,Chole Bhature,3,310,930
+ORD0009,Customer_9,Kerala,Fish Curry,1,421,421
+ORD0010,Customer_10,Odisha,Rogan Josh,1,352,352
+ORD0011,Customer_11,Nagaland,Masala Dosa,2,304,608
+ORD0012,Customer_12,Delhi,Momos,4,392,1568
+ORD0013,Customer_13,Sikkim,Masala Dosa,2,334,668
+ORD0014,Customer_14,Tripura,Idli Sambar,3,368,1104
+ORD0015,Customer_15,Uttarakhand,Idli Sambar,4,291,1164
+ORD0016,Customer_16,Telangana,Rogan Josh,5,489,2445
+ORD0017,Customer_17,Chhattisgarh,Pav Bhaji,1,246,246
+ORD0018,Customer_18,Assam,Idli Sambar,4,194,776
+ORD0019,Customer_19,Telangana,Fish Curry,1,441,441
+ORD0020,Customer_20,Tamil Nadu,Rogan Josh,3,121,363
+ORD0021,Customer_21,Uttar Pradesh,Veg Pulao,1,301,301
+ORD0022,Customer_22,Madhya Pradesh,Rogan Josh,1,174,174
+ORD0023,Customer_23,Delhi,Masala Dosa,2,250,500
+ORD0024,Customer_24,Goa,Chicken Biryani,4,417,1668
+ORD0025,Customer_25,Karnataka,Fish Curry,2,278,556
+ORD0026,Customer_26,Andhra Pradesh,Masala Dosa,4,189,756
+ORD0027,Customer_27,Uttarakhand,Veg Pulao,4,123,492
+ORD0028,Customer_28,Haryana,Chole Bhature,1,178,178
+ORD0029,Customer_29,Himachal Pradesh,Chole Bhature,1,312,312
+ORD0030,Customer_30,Jharkhand,Momos,3,229,687
+ORD0031,Customer_31,Uttar Pradesh,Chicken Biryani,5,203,1015
+ORD0032,Customer_32,Nagaland,Chicken Biryani,4,410,1640
+ORD0033,Customer_33,Haryana,Idli Sambar,3,104,312
+ORD0034,Customer_34,Arunachal Pradesh,Rogan Josh,5,112,560
+ORD0035,Customer_35,Arunachal Pradesh,Fish Curry,2,294,588
+ORD0036,Customer_36,Puducherry,Chole Bhature,2,281,562
+ORD0037,Customer_37,West Bengal,Momos,1,318,318
+ORD0038,Customer_38,Meghalaya,Masala Dosa,5,225,1125
+ORD0039,Customer_39,Punjab,Pav Bhaji,2,486,972
+ORD0040,Customer_40,Punjab,Chole Bhature,4,176,704
+ORD0041,Customer_41,Puducherry,Rogan Josh,2,499,998
+ORD0042,Customer_42,Odisha,Momos,2,106,212
+ORD0043,Customer_43,Odisha,Rogan Josh,2,350,700
+ORD0044,Customer_44,Maharashtra,Rogan Josh,4,118,472
+ORD0045,Customer_45,Kerala,Veg Pulao,3,197,591
+ORD0046,Customer_46,Maharashtra,Fish Curry,1,211,211
+ORD0047,Customer_47,Arunachal Pradesh,Chole Bhature,5,351,1755
+ORD0048,Customer_48,Andhra Pradesh,Pav Bhaji,5,306,1530
+ORD0049,Customer_49,Nagaland,Chicken Biryani,5,397,1985
+ORD0050,Customer_50,Arunachal Pradesh,Rogan Josh,4,319,1276
+ORD0051,Customer_51,Odisha,Paneer Butter Masala,2,256,512
+ORD0052,Customer_52,Kerala,Veg Pulao,5,493,2465
+ORD0053,Customer_53,Haryana,Rogan Josh,5,181,905
+ORD0054,Customer_54,Manipur,Fish Curry,4,312,1248
+ORD0055,Customer_55,Gujarat,Idli Sambar,2,372,744
+ORD0056,Customer_56,Uttar Pradesh,Momos,2,443,886
+ORD0057,Customer_57,Arunachal Pradesh,Chole Bhature,1,474,474
+ORD0058,Customer_58,Delhi,Fish Curry,3,133,399
+ORD0059,Customer_59,Andhra Pradesh,Masala Dosa,2,108,216
+ORD0060,Customer_60,Bihar,Fish Curry,2,177,354
+ORD0061,Customer_61,Assam,Fish Curry,3,306,918
+ORD0062,Customer_62,Goa,Paneer Butter Masala,3,454,1362
+ORD0063,Customer_63,Sikkim,Chicken Biryani,2,336,672
+ORD0064,Customer_64,Rajasthan,Chicken Biryani,1,368,368
+ORD0065,Customer_65,Assam,Veg Pulao,5,353,1765
+ORD0066,Customer_66,Mizoram,Paneer Butter Masala,1,113,113
+ORD0067,Customer_67,Sikkim,Chicken Biryani,5,457,2285
+ORD0068,Customer_68,Himachal Pradesh,Rogan Josh,1,224,224
+ORD0069,Customer_69,Manipur,Fish Curry,1,352,352
+ORD0070,Customer_70,Uttarakhand,Masala Dosa,4,406,1624
+ORD0071,Customer_71,Punjab,Fish Curry,1,200,200
+ORD0072,Customer_72,Punjab,Chole Bhature,4,415,1660
+ORD0073,Customer_73,West Bengal,Chicken Biryani,2,192,384
+ORD0074,Customer_74,Kerala,Chole Bhature,1,357,357
+ORD0075,Customer_75,Maharashtra,Pav Bhaji,3,275,825
+ORD0076,Customer_76,Puducherry,Paneer Butter Masala,3,158,474
+ORD0077,Customer_77,Himachal Pradesh,Masala Dosa,2,319,638
+ORD0078,Customer_78,Goa,Rogan Josh,4,387,1548
+ORD0079,Customer_79,Arunachal Pradesh,Fish Curry,3,159,477
+ORD0080,Customer_80,Arunachal Pradesh,Chole Bhature,3,175,525
+ORD0081,Customer_81,Uttarakhand,Paneer Butter Masala,1,310,310
+ORD0082,Customer_82,Telangana,Fish Curry,2,442,884
+ORD0083,Customer_83,Uttarakhand,Idli Sambar,1,151,151
+ORD0084,Customer_84,Punjab,Veg Pulao,3,258,774
+ORD0085,Customer_85,Rajasthan,Veg Pulao,2,423,846
+ORD0086,Customer_86,Rajasthan,Paneer Butter Masala,1,413,413
+ORD0087,Customer_87,Telangana,Idli Sambar,5,224,1120
+ORD0088,Customer_88,Telangana,Rogan Josh,3,187,561
+ORD0089,Customer_89,Uttar Pradesh,Masala Dosa,4,350,1400
+ORD0090,Customer_90,Meghalaya,Pav Bhaji,5,228,1140
+ORD0091,Customer_91,Gujarat,Fish Curry,1,154,154
+ORD0092,Customer_92,Telangana,Rogan Josh,1,468,468
+ORD0093,Customer_93,Haryana,Paneer Butter Masala,3,371,1113
+ORD0094,Customer_94,Goa,Masala Dosa,2,487,974
+ORD0095,Customer_95,Gujarat,Veg Pulao,3,417,1251
+ORD0096,Customer_96,Uttarakhand,Idli Sambar,4,163,652
+ORD0097,Customer_97,Mizoram,Momos,2,111,222
+ORD0098,Customer_98,Himachal Pradesh,Masala Dosa,5,108,540
+ORD0099,Customer_99,Assam,Chole Bhature,3,491,1473
+ORD0100,Customer_100,Uttar Pradesh,Pav Bhaji,4,253,1012
+ORD0101,Customer_101,Telangana,Chole Bhature,1,239,239
+ORD0102,Customer_102,Tamil Nadu,Masala Dosa,1,230,230
+ORD0103,Customer_103,Chhattisgarh,Momos,3,410,1230
+ORD0104,Customer_104,Karnataka,Chole Bhature,4,375,1500
+ORD0105,Customer_105,Manipur,Chicken Biryani,1,419,419
+ORD0106,Customer_106,Tripura,Momos,4,217,868
+ORD0107,Customer_107,Tripura,Chicken Biryani,1,245,245
+ORD0108,Customer_108,Bihar,Masala Dosa,4,441,1764
+ORD0109,Customer_109,Manipur,Chicken Biryani,2,385,770
+ORD0110,Customer_110,Mizoram,Veg Pulao,4,431,1724
+ORD0111,Customer_111,Haryana,Fish Curry,2,324,648
+ORD0112,Customer_112,Manipur,Fish Curry,4,400,1600
+ORD0113,Customer_113,Maharashtra,Rogan Josh,2,494,988
+ORD0114,Customer_114,Haryana,Momos,1,183,183
+ORD0115,Customer_115,Delhi,Veg Pulao,5,368,1840
+ORD0116,Customer_116,Haryana,Momos,2,374,748
+ORD0117,Customer_117,Tamil Nadu,Pav Bhaji,3,463,1389
+ORD0118,Customer_118,Karnataka,Fish Curry,3,347,1041
+ORD0119,Customer_119,Himachal Pradesh,Rogan Josh,4,480,1920
+ORD0120,Customer_120,Maharashtra,Masala Dosa,1,392,392
+ORD0121,Customer_121,Puducherry,Momos,2,340,680
+ORD0122,Customer_122,Manipur,Chole Bhature,4,497,1988
+ORD0123,Customer_123,Goa,Fish Curry,1,172,172
+ORD0124,Customer_124,Mizoram,Rogan Josh,3,243,729
+ORD0125,Customer_125,Uttar Pradesh,Chole Bhature,4,245,980
+ORD0126,Customer_126,Mizoram,Chicken Biryani,5,478,2390
+ORD0127,Customer_127,Maharashtra,Masala Dosa,3,460,1380
+ORD0128,Customer_128,Madhya Pradesh,Chicken Biryani,5,237,1185
+ORD0129,Customer_129,Meghalaya,Veg Pulao,4,382,1528
+ORD0130,Customer_130,Haryana,Rogan Josh,5,203,1015
+ORD0131,Customer_131,Chhattisgarh,Rogan Josh,3,318,954
+ORD0132,Customer_132,Manipur,Fish Curry,3,408,1224
+ORD0133,Customer_133,Manipur,Chicken Biryani,4,374,1496
+ORD0134,Customer_134,Telangana,Veg Pulao,3,266,798
+ORD0135,Customer_135,Puducherry,Chicken Biryani,1,127,127
+ORD0136,Customer_136,Delhi,Momos,3,493,1479
+ORD0137,Customer_137,Uttar Pradesh,Fish Curry,3,428,1284
+ORD0138,Customer_138,Manipur,Fish Curry,1,181,181
+ORD0139,Customer_139,Delhi,Fish Curry,2,471,942
+ORD0140,Customer_140,Odisha,Fish Curry,2,334,668
+ORD0141,Customer_141,Odisha,Veg Pulao,3,141,423
+ORD0142,Customer_142,Odisha,Rogan Josh,4,213,852
+ORD0143,Customer_143,Maharashtra,Rogan Josh,5,494,2470
+ORD0144,Customer_144,Chhattisgarh,Chole Bhature,1,484,484
+ORD0145,Customer_145,Himachal Pradesh,Chicken Biryani,3,395,1185
+ORD0146,Customer_146,Tamil Nadu,Veg Pulao,1,123,123
+ORD0147,Customer_147,Jharkhand,Pav Bhaji,1,281,281
+ORD0148,Customer_148,Puducherry,Pav Bhaji,2,453,906
+ORD0149,Customer_149,Delhi,Masala Dosa,1,154,154
+ORD0150,Customer_150,Assam,Momos,4,388,1552
+ORD0151,Customer_151,Gujarat,Momos,1,305,305
+ORD0152,Customer_152,Tripura,Chicken Biryani,1,382,382
+ORD0153,Customer_153,Arunachal Pradesh,Fish Curry,5,197,985
+ORD0154,Customer_154,Punjab,Paneer Butter Masala,2,274,548
+ORD0155,Customer_155,Tripura,Chicken Biryani,5,358,1790
+ORD0156,Customer_156,West Bengal,Rogan Josh,4,137,548
+ORD0157,Customer_157,Jharkhand,Veg Pulao,1,135,135
+ORD0158,Customer_158,Rajasthan,Masala Dosa,3,315,945
+ORD0159,Customer_159,Kerala,Chicken Biryani,2,229,458
+ORD0160,Customer_160,Odisha,Pav Bhaji,3,478,1434
+ORD0161,Customer_161,Haryana,Chole Bhature,3,379,1137
+ORD0162,Customer_162,Gujarat,Chole Bhature,3,435,1305
+ORD0163,Customer_163,Maharashtra,Pav Bhaji,2,323,646
+ORD0164,Customer_164,Arunachal Pradesh,Pav Bhaji,2,135,270
+ORD0165,Customer_165,Odisha,Masala Dosa,1,218,218
+ORD0166,Customer_166,Puducherry,Pav Bhaji,4,481,1924
+ORD0167,Customer_167,Uttarakhand,Momos,3,315,945
+ORD0168,Customer_168,Manipur,Chicken Biryani,4,345,1380
+ORD0169,Customer_169,Madhya Pradesh,Chole Bhature,2,306,612
+ORD0170,Customer_170,Rajasthan,Fish Curry,2,468,936
+ORD0171,Customer_171,Andhra Pradesh,Momos,4,485,1940
+ORD0172,Customer_172,Chhattisgarh,Pav Bhaji,3,365,1095
+ORD0173,Customer_173,Jharkhand,Chole Bhature,2,115,230
+ORD0174,Customer_174,Odisha,Paneer Butter Masala,4,115,460
+ORD0175,Customer_175,Himachal Pradesh,Chole Bhature,5,486,2430
+ORD0176,Customer_176,Manipur,Idli Sambar,2,441,882
+ORD0177,Customer_177,Andhra Pradesh,Chole Bhature,1,321,321
+ORD0178,Customer_178,Himachal Pradesh,Veg Pulao,3,441,1323
+ORD0179,Customer_179,Jharkhand,Masala Dosa,5,423,2115
+ORD0180,Customer_180,Punjab,Rogan Josh,2,100,200
+ORD0181,Customer_181,Jharkhand,Chicken Biryani,3,488,1464
+ORD0182,Customer_182,Kerala,Paneer Butter Masala,5,284,1420
+ORD0183,Customer_183,Punjab,Pav Bhaji,3,303,909
+ORD0184,Customer_184,Karnataka,Chicken Biryani,5,281,1405
+ORD0185,Customer_185,Maharashtra,Masala Dosa,3,395,1185
+ORD0186,Customer_186,Chhattisgarh,Idli Sambar,2,225,450
+ORD0187,Customer_187,Mizoram,Rogan Josh,4,416,1664
+ORD0188,Customer_188,West Bengal,Idli Sambar,4,188,752
+ORD0189,Customer_189,Sikkim,Idli Sambar,5,133,665
+ORD0190,Customer_190,West Bengal,Pav Bhaji,3,367,1101
+ORD0191,Customer_191,Kerala,Chicken Biryani,5,472,2360
+ORD0192,Customer_192,Telangana,Pav Bhaji,4,170,680
+ORD0193,Customer_193,Mizoram,Paneer Butter Masala,5,309,1545
+ORD0194,Customer_194,Andhra Pradesh,Paneer Butter Masala,3,296,888
+ORD0195,Customer_195,Manipur,Pav Bhaji,5,264,1320
+ORD0196,Customer_196,Arunachal Pradesh,Veg Pulao,1,397,397
+ORD0197,Customer_197,Uttarakhand,Fish Curry,2,347,694
+ORD0198,Customer_198,Punjab,Fish Curry,2,204,408
+ORD0199,Customer_199,Karnataka,Fish Curry,5,301,1505
+ORD0200,Customer_200,Nagaland,Chicken Biryani,5,430,2150

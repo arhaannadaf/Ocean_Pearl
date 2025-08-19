@@ -1,0 +1,301 @@
+Order_ID,Customer_Name,Phone_Number,Email,State,City,Pincode,Menu_Item,Quantity,Price_Per_Item,Order_Date,Delivery_Mode,Payment_Method,Order_Status,Total_Price
+ONL00001,Customer_1,+919380327606,customer1@example.com,Haryana,City_41,106558,Masala Dosa,5,260,2025-02-10,Home Delivery,Debit Card,Preparing,1300
+ONL00002,Customer_2,+919851681208,customer2@example.com,Karnataka,City_13,761418,Momos,5,323,2025-04-26,Home Delivery,Credit Card,Pending,1615
+ONL00003,Customer_3,+918868151968,customer3@example.com,Goa,City_22,215512,Rogan Josh,1,326,2025-01-08,Pickup,Debit Card,Preparing,326
+ONL00004,Customer_4,+919321359517,customer4@example.com,Mizoram,City_29,750266,Fish Curry,4,348,2025-07-17,Pickup,Cash on Delivery,Pending,1392
+ONL00005,Customer_5,+919184074840,customer5@example.com,Madhya Pradesh,City_32,381070,Fish Curry,2,413,2025-07-18,Pickup,Debit Card,Pending,826
+ONL00006,Customer_6,+918907984215,customer6@example.com,Tripura,City_46,400367,Masala Dosa,1,478,2025-02-03,Pickup,Cash on Delivery,Delivered,478
+ONL00007,Customer_7,+917876481456,customer7@example.com,Goa,City_15,605711,Rogan Josh,3,390,2025-05-06,Home Delivery,Net Banking,Out for Delivery,1170
+ONL00008,Customer_8,+916312011379,customer8@example.com,Uttarakhand,City_7,701531,Rogan Josh,1,432,2025-03-23,Home Delivery,Net Banking,Preparing,432
+ONL00009,Customer_9,+917997403503,customer9@example.com,Mizoram,City_26,139805,Rogan Josh,5,468,2025-04-20,Pickup,UPI,Pending,2340
+ONL00010,Customer_10,+916045457378,customer10@example.com,Arunachal Pradesh,City_3,522840,Veg Pulao,2,355,2025-03-06,Home Delivery,Credit Card,Pending,710
+ONL00011,Customer_11,+918279260141,customer11@example.com,Goa,City_29,141202,Momos,3,436,2025-02-18,Home Delivery,Net Banking,Out for Delivery,1308
+ONL00012,Customer_12,+918996155322,customer12@example.com,Tripura,City_12,483323,Chole Bhature,2,436,2025-07-10,Pickup,Cash on Delivery,Delivered,872
+ONL00013,Customer_13,+916665299247,customer13@example.com,Telangana,City_1,610778,Masala Dosa,2,152,2025-02-04,Pickup,Credit Card,Pending,304
+ONL00014,Customer_14,+918015081866,customer14@example.com,Odisha,City_49,176753,Masala Dosa,2,354,2025-04-15,Home Delivery,Net Banking,Cancelled,708
+ONL00015,Customer_15,+916790548334,customer15@example.com,Gujarat,City_24,613895,Rogan Josh,4,370,2025-01-16,Home Delivery,Cash on Delivery,Preparing,1480
+ONL00016,Customer_16,+916243960975,customer16@example.com,Himachal Pradesh,City_4,476363,Rogan Josh,1,124,2025-05-28,Home Delivery,UPI,Delivered,124
+ONL00017,Customer_17,+917187654589,customer17@example.com,Sikkim,City_38,885019,Fish Curry,5,350,2025-04-15,Pickup,Net Banking,Cancelled,1750
+ONL00018,Customer_18,+918030847708,customer18@example.com,Karnataka,City_6,166832,Idli Sambar,4,287,2025-06-06,Home Delivery,Cash on Delivery,Preparing,1148
+ONL00019,Customer_19,+918804314712,customer19@example.com,Meghalaya,City_32,501783,Paneer Butter Masala,5,445,2025-05-11,Home Delivery,UPI,Preparing,2225
+ONL00020,Customer_20,+919436004213,customer20@example.com,Uttar Pradesh,City_27,853355,Pav Bhaji,1,233,2025-02-01,Pickup,Net Banking,Cancelled,233
+ONL00021,Customer_21,+918730153077,customer21@example.com,Punjab,City_43,481460,Idli Sambar,3,493,2025-04-10,Home Delivery,UPI,Cancelled,1479
+ONL00022,Customer_22,+917483695965,customer22@example.com,Delhi,City_18,261116,Chole Bhature,2,124,2025-05-06,Home Delivery,Credit Card,Delivered,248
+ONL00023,Customer_23,+918700495668,customer23@example.com,Jharkhand,City_41,488629,Chicken Biryani,1,254,2025-02-11,Home Delivery,Net Banking,Delivered,254
+ONL00024,Customer_24,+919750172459,customer24@example.com,Goa,City_11,487187,Idli Sambar,2,405,2025-06-10,Home Delivery,Debit Card,Cancelled,810
+ONL00025,Customer_25,+919511809659,customer25@example.com,Rajasthan,City_8,769723,Rogan Josh,4,159,2025-02-28,Pickup,UPI,Out for Delivery,636
+ONL00026,Customer_26,+918172436560,customer26@example.com,Haryana,City_42,344029,Chole Bhature,2,451,2025-04-17,Pickup,Debit Card,Cancelled,902
+ONL00027,Customer_27,+916774929355,customer27@example.com,Uttar Pradesh,City_7,568569,Veg Pulao,1,480,2025-03-27,Home Delivery,Debit Card,Preparing,480
+ONL00028,Customer_28,+916875958292,customer28@example.com,Punjab,City_41,789352,Chole Bhature,4,311,2025-01-08,Home Delivery,Credit Card,Preparing,1244
+ONL00029,Customer_29,+917809271782,customer29@example.com,Rajasthan,City_30,513049,Fish Curry,5,320,2025-01-03,Home Delivery,UPI,Preparing,1600
+ONL00030,Customer_30,+917536963318,customer30@example.com,Mizoram,City_19,605606,Momos,4,473,2025-07-08,Pickup,Net Banking,Delivered,1892
+ONL00031,Customer_31,+916042611480,customer31@example.com,Uttar Pradesh,City_44,377098,Paneer Butter Masala,2,395,2025-06-21,Pickup,Debit Card,Cancelled,790
+ONL00032,Customer_32,+919499706219,customer32@example.com,Gujarat,City_33,297099,Idli Sambar,2,348,2025-04-05,Home Delivery,Debit Card,Delivered,696
+ONL00033,Customer_33,+917440938582,customer33@example.com,Telangana,City_49,934408,Idli Sambar,2,110,2025-06-25,Pickup,UPI,Pending,220
+ONL00034,Customer_34,+919092858826,customer34@example.com,Punjab,City_36,782600,Rogan Josh,5,238,2025-04-10,Pickup,Debit Card,Preparing,1190
+ONL00035,Customer_35,+918536405166,customer35@example.com,Rajasthan,City_17,755310,Chicken Biryani,4,355,2025-06-14,Home Delivery,Debit Card,Pending,1420
+ONL00036,Customer_36,+917461594277,customer36@example.com,Tamil Nadu,City_3,313263,Rogan Josh,3,308,2025-04-12,Home Delivery,UPI,Out for Delivery,924
+ONL00037,Customer_37,+916443570719,customer37@example.com,Jharkhand,City_36,618213,Pav Bhaji,4,158,2025-02-02,Pickup,UPI,Out for Delivery,632
+ONL00038,Customer_38,+919494006967,customer38@example.com,Meghalaya,City_19,521524,Chicken Biryani,5,378,2025-03-14,Home Delivery,Credit Card,Pending,1890
+ONL00039,Customer_39,+919277775049,customer39@example.com,Manipur,City_31,798832,Chole Bhature,5,425,2025-06-20,Pickup,Debit Card,Preparing,2125
+ONL00040,Customer_40,+919209000492,customer40@example.com,Andhra Pradesh,City_36,353857,Veg Pulao,1,289,2025-05-14,Home Delivery,Cash on Delivery,Preparing,289
+ONL00041,Customer_41,+917234649875,customer41@example.com,Himachal Pradesh,City_43,953430,Chole Bhature,5,143,2025-03-10,Pickup,Debit Card,Out for Delivery,715
+ONL00042,Customer_42,+917581459027,customer42@example.com,Haryana,City_49,634809,Paneer Butter Masala,1,468,2025-01-08,Home Delivery,Net Banking,Delivered,468
+ONL00043,Customer_43,+918070715756,customer43@example.com,Delhi,City_30,535115,Rogan Josh,2,105,2025-06-24,Home Delivery,Cash on Delivery,Cancelled,210
+ONL00044,Customer_44,+917086049208,customer44@example.com,Telangana,City_28,176230,Rogan Josh,4,267,2025-02-07,Pickup,Cash on Delivery,Delivered,1068
+ONL00045,Customer_45,+919934213647,customer45@example.com,Maharashtra,City_17,484458,Fish Curry,1,306,2025-06-13,Pickup,Credit Card,Pending,306
+ONL00046,Customer_46,+918118283786,customer46@example.com,Manipur,City_29,724867,Veg Pulao,1,400,2025-01-06,Home Delivery,Credit Card,Pending,400
+ONL00047,Customer_47,+918143680553,customer47@example.com,Punjab,City_34,710830,Rogan Josh,5,260,2025-01-17,Home Delivery,Credit Card,Pending,1300
+ONL00048,Customer_48,+919561677628,customer48@example.com,Chhattisgarh,City_47,372015,Veg Pulao,5,272,2025-03-03,Home Delivery,Net Banking,Cancelled,1360
+ONL00049,Customer_49,+919978504033,customer49@example.com,Uttar Pradesh,City_39,448838,Momos,2,423,2025-06-17,Pickup,Net Banking,Cancelled,846
+ONL00050,Customer_50,+919266895710,customer50@example.com,Puducherry,City_5,322902,Pav Bhaji,5,255,2025-03-30,Home Delivery,Net Banking,Cancelled,1275
+ONL00051,Customer_51,+916057561267,customer51@example.com,Mizoram,City_3,716049,Chicken Biryani,1,197,2025-06-09,Pickup,Net Banking,Delivered,197
+ONL00052,Customer_52,+916983386429,customer52@example.com,Manipur,City_9,347157,Chicken Biryani,4,204,2025-04-29,Home Delivery,UPI,Delivered,816
+ONL00053,Customer_53,+918867631430,customer53@example.com,Nagaland,City_16,885752,Pav Bhaji,1,416,2025-03-17,Home Delivery,Debit Card,Cancelled,416
+ONL00054,Customer_54,+918875456963,customer54@example.com,Madhya Pradesh,City_25,655694,Pav Bhaji,4,399,2025-04-25,Home Delivery,Cash on Delivery,Preparing,1596
+ONL00055,Customer_55,+917349558047,customer55@example.com,Maharashtra,City_13,427796,Paneer Butter Masala,1,498,2025-06-21,Pickup,Credit Card,Delivered,498
+ONL00056,Customer_56,+919275746021,customer56@example.com,Maharashtra,City_24,941231,Veg Pulao,2,238,2025-03-31,Home Delivery,Cash on Delivery,Delivered,476
+ONL00057,Customer_57,+916669823348,customer57@example.com,Tripura,City_16,627584,Chole Bhature,4,314,2025-06-04,Pickup,Credit Card,Pending,1256
+ONL00058,Customer_58,+918354646157,customer58@example.com,Meghalaya,City_37,658090,Paneer Butter Masala,2,213,2025-03-16,Pickup,Cash on Delivery,Cancelled,426
+ONL00059,Customer_59,+919815241637,customer59@example.com,Arunachal Pradesh,City_31,979303,Fish Curry,2,303,2025-05-14,Pickup,Cash on Delivery,Cancelled,606
+ONL00060,Customer_60,+919931438477,customer60@example.com,Assam,City_7,605581,Fish Curry,3,284,2025-01-05,Pickup,Net Banking,Out for Delivery,852
+ONL00061,Customer_61,+919191563152,customer61@example.com,Arunachal Pradesh,City_31,191511,Veg Pulao,3,378,2025-05-20,Home Delivery,UPI,Pending,1134
+ONL00062,Customer_62,+917744853626,customer62@example.com,Haryana,City_41,159741,Masala Dosa,1,469,2025-05-09,Pickup,Credit Card,Delivered,469
+ONL00063,Customer_63,+917681564417,customer63@example.com,Punjab,City_35,711005,Chole Bhature,3,254,2025-07-15,Pickup,Credit Card,Out for Delivery,762
+ONL00064,Customer_64,+918419124478,customer64@example.com,Telangana,City_28,542669,Pav Bhaji,3,299,2025-01-24,Home Delivery,UPI,Out for Delivery,897
+ONL00065,Customer_65,+918312312467,customer65@example.com,Tripura,City_28,503461,Rogan Josh,3,200,2025-01-19,Home Delivery,UPI,Out for Delivery,600
+ONL00066,Customer_66,+918020590060,customer66@example.com,Nagaland,City_46,132206,Masala Dosa,3,376,2025-01-14,Pickup,Net Banking,Pending,1128
+ONL00067,Customer_67,+918786854608,customer67@example.com,Goa,City_50,942144,Momos,3,409,2025-02-18,Pickup,Debit Card,Out for Delivery,1227
+ONL00068,Customer_68,+919325254068,customer68@example.com,Mizoram,City_23,106122,Veg Pulao,5,377,2025-07-19,Pickup,Debit Card,Preparing,1885
+ONL00069,Customer_69,+917191354490,customer69@example.com,Assam,City_41,760109,Pav Bhaji,2,479,2025-01-16,Home Delivery,Net Banking,Preparing,958
+ONL00070,Customer_70,+918665238805,customer70@example.com,Punjab,City_47,748274,Masala Dosa,3,282,2025-07-09,Pickup,Net Banking,Cancelled,846
+ONL00071,Customer_71,+918087112851,customer71@example.com,Chhattisgarh,City_8,215669,Masala Dosa,4,403,2025-06-30,Pickup,Cash on Delivery,Out for Delivery,1612
+ONL00072,Customer_72,+916266673334,customer72@example.com,Meghalaya,City_5,972677,Paneer Butter Masala,4,440,2025-07-16,Home Delivery,UPI,Cancelled,1760
+ONL00073,Customer_73,+918833819959,customer73@example.com,Assam,City_35,818242,Idli Sambar,3,269,2025-05-21,Home Delivery,Net Banking,Out for Delivery,807
+ONL00074,Customer_74,+916304568226,customer74@example.com,Uttarakhand,City_9,319159,Rogan Josh,4,210,2025-01-18,Pickup,Net Banking,Out for Delivery,840
+ONL00075,Customer_75,+917111063212,customer75@example.com,Madhya Pradesh,City_26,574824,Momos,1,432,2025-05-05,Pickup,Debit Card,Preparing,432
+ONL00076,Customer_76,+918065936071,customer76@example.com,Assam,City_8,748289,Veg Pulao,2,370,2025-03-03,Pickup,Debit Card,Cancelled,740
+ONL00077,Customer_77,+916044473236,customer77@example.com,West Bengal,City_16,841996,Veg Pulao,1,234,2025-02-02,Pickup,Cash on Delivery,Cancelled,234
+ONL00078,Customer_78,+916806449830,customer78@example.com,Himachal Pradesh,City_5,214644,Fish Curry,3,415,2025-05-21,Home Delivery,Debit Card,Delivered,1245
+ONL00079,Customer_79,+916315639729,customer79@example.com,Bihar,City_8,171925,Pav Bhaji,1,490,2025-05-06,Pickup,Cash on Delivery,Pending,490
+ONL00080,Customer_80,+919810234828,customer80@example.com,Haryana,City_1,154784,Rogan Josh,5,429,2025-06-01,Pickup,UPI,Delivered,2145
+ONL00081,Customer_81,+919761503221,customer81@example.com,Mizoram,City_10,656069,Chole Bhature,4,193,2025-05-15,Pickup,UPI,Out for Delivery,772
+ONL00082,Customer_82,+918523455957,customer82@example.com,Andhra Pradesh,City_33,927229,Chicken Biryani,5,369,2025-06-05,Home Delivery,Cash on Delivery,Cancelled,1845
+ONL00083,Customer_83,+916531311661,customer83@example.com,Mizoram,City_14,353088,Pav Bhaji,5,115,2025-03-30,Pickup,Debit Card,Cancelled,575
+ONL00084,Customer_84,+918146129402,customer84@example.com,Maharashtra,City_3,495668,Paneer Butter Masala,1,164,2025-01-05,Home Delivery,Debit Card,Delivered,164
+ONL00085,Customer_85,+918572081338,customer85@example.com,Assam,City_6,552760,Masala Dosa,5,293,2025-06-14,Home Delivery,Net Banking,Cancelled,1465
+ONL00086,Customer_86,+916671532204,customer86@example.com,Tamil Nadu,City_6,613009,Chole Bhature,4,181,2025-03-20,Home Delivery,Net Banking,Pending,724
+ONL00087,Customer_87,+916470861046,customer87@example.com,Haryana,City_21,240617,Rogan Josh,5,396,2025-03-16,Pickup,Cash on Delivery,Cancelled,1980
+ONL00088,Customer_88,+916154157031,customer88@example.com,Jharkhand,City_6,285012,Chicken Biryani,4,403,2025-02-07,Pickup,UPI,Cancelled,1612
+ONL00089,Customer_89,+916779743851,customer89@example.com,Andhra Pradesh,City_15,448590,Fish Curry,4,141,2025-02-24,Pickup,Cash on Delivery,Pending,564
+ONL00090,Customer_90,+919941153260,customer90@example.com,Uttarakhand,City_44,294768,Idli Sambar,4,110,2025-03-24,Home Delivery,Debit Card,Delivered,440
+ONL00091,Customer_91,+917856501673,customer91@example.com,Madhya Pradesh,City_22,427625,Fish Curry,1,442,2025-03-04,Home Delivery,Net Banking,Pending,442
+ONL00092,Customer_92,+918062575736,customer92@example.com,Odisha,City_13,421538,Chole Bhature,5,459,2025-05-31,Pickup,UPI,Cancelled,2295
+ONL00093,Customer_93,+918099171061,customer93@example.com,Telangana,City_5,907263,Fish Curry,2,180,2025-05-25,Pickup,Credit Card,Out for Delivery,360
+ONL00094,Customer_94,+916717691335,customer94@example.com,Punjab,City_31,922637,Fish Curry,4,487,2025-04-03,Pickup,Cash on Delivery,Preparing,1948
+ONL00095,Customer_95,+916073079974,customer95@example.com,Kerala,City_40,193751,Paneer Butter Masala,2,263,2025-03-14,Home Delivery,Debit Card,Delivered,526
+ONL00096,Customer_96,+917432332459,customer96@example.com,Jharkhand,City_44,248476,Pav Bhaji,3,141,2025-01-07,Home Delivery,Debit Card,Pending,423
+ONL00097,Customer_97,+918785997348,customer97@example.com,Jharkhand,City_45,410993,Idli Sambar,4,256,2025-02-16,Pickup,Cash on Delivery,Cancelled,1024
+ONL00098,Customer_98,+918204995352,customer98@example.com,Madhya Pradesh,City_24,579657,Momos,3,214,2025-03-02,Pickup,Cash on Delivery,Out for Delivery,642
+ONL00099,Customer_99,+918976655891,customer99@example.com,Manipur,City_36,697682,Paneer Butter Masala,1,453,2025-01-21,Home Delivery,Credit Card,Preparing,453
+ONL00100,Customer_100,+917301608139,customer100@example.com,Gujarat,City_32,589611,Veg Pulao,3,221,2025-01-19,Pickup,UPI,Pending,663
+ONL00101,Customer_101,+917280303108,customer101@example.com,Sikkim,City_45,725498,Chicken Biryani,5,300,2025-06-26,Pickup,Debit Card,Pending,1500
+ONL00102,Customer_102,+916084433420,customer102@example.com,Himachal Pradesh,City_48,900811,Paneer Butter Masala,3,211,2025-02-23,Home Delivery,Net Banking,Pending,633
+ONL00103,Customer_103,+916799922860,customer103@example.com,Rajasthan,City_8,542125,Pav Bhaji,2,148,2025-05-22,Home Delivery,Net Banking,Cancelled,296
+ONL00104,Customer_104,+917736374119,customer104@example.com,Uttar Pradesh,City_19,564610,Pav Bhaji,5,297,2025-01-26,Pickup,UPI,Cancelled,1485
+ONL00105,Customer_105,+917652319230,customer105@example.com,Punjab,City_34,959183,Rogan Josh,4,451,2025-03-18,Home Delivery,Debit Card,Preparing,1804
+ONL00106,Customer_106,+919331570597,customer106@example.com,Jharkhand,City_50,133407,Pav Bhaji,4,399,2025-04-04,Pickup,Credit Card,Delivered,1596
+ONL00107,Customer_107,+916885342754,customer107@example.com,Arunachal Pradesh,City_19,154525,Paneer Butter Masala,3,464,2025-02-03,Home Delivery,Credit Card,Delivered,1392
+ONL00108,Customer_108,+919584937014,customer108@example.com,Puducherry,City_17,386235,Chicken Biryani,4,344,2025-02-18,Pickup,Net Banking,Delivered,1376
+ONL00109,Customer_109,+916236817237,customer109@example.com,Sikkim,City_1,807489,Chicken Biryani,1,400,2025-04-10,Home Delivery,Net Banking,Out for Delivery,400
+ONL00110,Customer_110,+916645540321,customer110@example.com,Haryana,City_18,693891,Idli Sambar,3,162,2025-01-31,Pickup,Cash on Delivery,Pending,486
+ONL00111,Customer_111,+917122478682,customer111@example.com,Bihar,City_14,950913,Veg Pulao,5,207,2025-05-20,Home Delivery,Credit Card,Cancelled,1035
+ONL00112,Customer_112,+919544676265,customer112@example.com,Karnataka,City_26,369122,Pav Bhaji,5,257,2025-06-08,Pickup,UPI,Delivered,1285
+ONL00113,Customer_113,+917440009891,customer113@example.com,Delhi,City_5,385397,Chole Bhature,4,481,2025-05-17,Home Delivery,Cash on Delivery,Out for Delivery,1924
+ONL00114,Customer_114,+918251395707,customer114@example.com,Manipur,City_1,953151,Chole Bhature,3,406,2025-06-28,Pickup,Net Banking,Pending,1218
+ONL00115,Customer_115,+919561135375,customer115@example.com,Puducherry,City_3,933383,Chole Bhature,1,395,2025-02-11,Home Delivery,Credit Card,Delivered,395
+ONL00116,Customer_116,+919197888487,customer116@example.com,Madhya Pradesh,City_46,231589,Pav Bhaji,3,455,2025-02-06,Home Delivery,UPI,Preparing,1365
+ONL00117,Customer_117,+917064229975,customer117@example.com,Karnataka,City_40,600580,Paneer Butter Masala,2,191,2025-06-26,Home Delivery,Cash on Delivery,Cancelled,382
+ONL00118,Customer_118,+916279681995,customer118@example.com,Assam,City_11,766443,Chicken Biryani,1,470,2025-03-04,Pickup,Net Banking,Pending,470
+ONL00119,Customer_119,+919379511264,customer119@example.com,Tripura,City_2,231267,Paneer Butter Masala,4,202,2025-01-21,Pickup,UPI,Preparing,808
+ONL00120,Customer_120,+916439635023,customer120@example.com,Nagaland,City_3,747979,Fish Curry,5,436,2025-01-30,Pickup,Debit Card,Delivered,2180
+ONL00121,Customer_121,+916322564676,customer121@example.com,Nagaland,City_1,489474,Paneer Butter Masala,3,317,2025-03-04,Home Delivery,Net Banking,Delivered,951
+ONL00122,Customer_122,+919200987164,customer122@example.com,Telangana,City_38,587953,Paneer Butter Masala,2,462,2025-02-11,Home Delivery,Debit Card,Pending,924
+ONL00123,Customer_123,+919022117598,customer123@example.com,Mizoram,City_3,407066,Chicken Biryani,5,323,2025-02-14,Home Delivery,Credit Card,Cancelled,1615
+ONL00124,Customer_124,+917967962376,customer124@example.com,Kerala,City_30,232021,Veg Pulao,1,245,2025-07-17,Home Delivery,Debit Card,Pending,245
+ONL00125,Customer_125,+919479847469,customer125@example.com,Chhattisgarh,City_7,909471,Rogan Josh,4,304,2025-02-16,Home Delivery,Credit Card,Out for Delivery,1216
+ONL00126,Customer_126,+917876957764,customer126@example.com,Goa,City_10,219882,Masala Dosa,4,494,2025-04-27,Pickup,Cash on Delivery,Cancelled,1976
+ONL00127,Customer_127,+916166364767,customer127@example.com,Karnataka,City_4,759971,Rogan Josh,4,355,2025-04-11,Home Delivery,Debit Card,Preparing,1420
+ONL00128,Customer_128,+919113633951,customer128@example.com,Uttar Pradesh,City_6,988916,Chole Bhature,5,364,2025-01-28,Home Delivery,Cash on Delivery,Preparing,1820
+ONL00129,Customer_129,+918675529871,customer129@example.com,Karnataka,City_32,886624,Fish Curry,1,219,2025-06-18,Home Delivery,Net Banking,Out for Delivery,219
+ONL00130,Customer_130,+916691314539,customer130@example.com,Punjab,City_16,927382,Chole Bhature,4,192,2025-03-28,Home Delivery,Debit Card,Out for Delivery,768
+ONL00131,Customer_131,+916122461949,customer131@example.com,Nagaland,City_34,413177,Chole Bhature,5,477,2025-03-16,Pickup,Cash on Delivery,Pending,2385
+ONL00132,Customer_132,+919518963409,customer132@example.com,Sikkim,City_23,231304,Pav Bhaji,2,389,2025-01-21,Home Delivery,UPI,Out for Delivery,778
+ONL00133,Customer_133,+917670065389,customer133@example.com,Tripura,City_35,550578,Veg Pulao,5,441,2025-06-17,Home Delivery,Net Banking,Cancelled,2205
+ONL00134,Customer_134,+919551411329,customer134@example.com,Maharashtra,City_9,977670,Pav Bhaji,4,342,2025-03-26,Pickup,Cash on Delivery,Pending,1368
+ONL00135,Customer_135,+916909663060,customer135@example.com,Andhra Pradesh,City_43,328601,Idli Sambar,1,288,2025-06-15,Pickup,Debit Card,Preparing,288
+ONL00136,Customer_136,+919408727165,customer136@example.com,Meghalaya,City_4,347343,Chicken Biryani,2,256,2025-02-23,Home Delivery,Cash on Delivery,Preparing,512
+ONL00137,Customer_137,+919630789235,customer137@example.com,Punjab,City_42,379229,Chole Bhature,4,132,2025-01-13,Pickup,Debit Card,Preparing,528
+ONL00138,Customer_138,+916443106887,customer138@example.com,Himachal Pradesh,City_31,977991,Momos,3,333,2025-01-11,Pickup,Net Banking,Out for Delivery,999
+ONL00139,Customer_139,+919026529740,customer139@example.com,Puducherry,City_43,570546,Fish Curry,4,124,2025-07-16,Pickup,Credit Card,Delivered,496
+ONL00140,Customer_140,+916416933490,customer140@example.com,Uttarakhand,City_1,149175,Masala Dosa,1,281,2025-04-20,Home Delivery,Cash on Delivery,Pending,281
+ONL00141,Customer_141,+918778459372,customer141@example.com,Tripura,City_18,529653,Paneer Butter Masala,5,407,2025-05-01,Pickup,Debit Card,Out for Delivery,2035
+ONL00142,Customer_142,+917851688644,customer142@example.com,Haryana,City_7,701864,Momos,3,312,2025-03-03,Pickup,Net Banking,Pending,936
+ONL00143,Customer_143,+917998271189,customer143@example.com,Maharashtra,City_26,555950,Idli Sambar,5,374,2025-01-01,Home Delivery,Net Banking,Cancelled,1870
+ONL00144,Customer_144,+919774770920,customer144@example.com,Puducherry,City_44,381534,Chicken Biryani,2,233,2025-04-29,Home Delivery,UPI,Cancelled,466
+ONL00145,Customer_145,+918633090134,customer145@example.com,Odisha,City_21,109322,Fish Curry,2,267,2025-04-18,Pickup,Cash on Delivery,Delivered,534
+ONL00146,Customer_146,+919854122600,customer146@example.com,Assam,City_42,620720,Fish Curry,5,458,2025-05-31,Pickup,UPI,Pending,2290
+ONL00147,Customer_147,+919578021338,customer147@example.com,Puducherry,City_14,537590,Pav Bhaji,5,237,2025-02-05,Pickup,UPI,Pending,1185
+ONL00148,Customer_148,+916902670753,customer148@example.com,Punjab,City_42,958026,Chicken Biryani,2,206,2025-02-13,Pickup,Net Banking,Pending,412
+ONL00149,Customer_149,+918064298056,customer149@example.com,Andhra Pradesh,City_21,535522,Pav Bhaji,2,106,2025-06-29,Pickup,Credit Card,Cancelled,212
+ONL00150,Customer_150,+917725907260,customer150@example.com,West Bengal,City_28,287798,Chole Bhature,2,118,2025-04-23,Pickup,Net Banking,Out for Delivery,236
+ONL00151,Customer_151,+917969529064,customer151@example.com,Assam,City_11,623060,Pav Bhaji,2,194,2025-04-06,Home Delivery,UPI,Pending,388
+ONL00152,Customer_152,+916656445827,customer152@example.com,Chhattisgarh,City_24,240639,Pav Bhaji,4,389,2025-06-04,Pickup,Net Banking,Out for Delivery,1556
+ONL00153,Customer_153,+919077299393,customer153@example.com,Tripura,City_18,386509,Idli Sambar,5,102,2025-07-20,Pickup,Credit Card,Out for Delivery,510
+ONL00154,Customer_154,+919964496718,customer154@example.com,Himachal Pradesh,City_7,960745,Chole Bhature,3,401,2025-02-06,Pickup,Credit Card,Pending,1203
+ONL00155,Customer_155,+919933692193,customer155@example.com,Uttar Pradesh,City_2,172008,Pav Bhaji,3,155,2025-06-17,Pickup,Debit Card,Preparing,465
+ONL00156,Customer_156,+918969967991,customer156@example.com,Tamil Nadu,City_23,544001,Pav Bhaji,4,295,2025-02-23,Pickup,Cash on Delivery,Cancelled,1180
+ONL00157,Customer_157,+919040930650,customer157@example.com,Andhra Pradesh,City_47,140058,Rogan Josh,1,197,2025-07-02,Home Delivery,UPI,Out for Delivery,197
+ONL00158,Customer_158,+917687075868,customer158@example.com,Telangana,City_49,219227,Rogan Josh,2,250,2025-03-11,Home Delivery,Debit Card,Preparing,500
+ONL00159,Customer_159,+918736146371,customer159@example.com,Assam,City_24,831891,Rogan Josh,4,426,2025-07-14,Pickup,Cash on Delivery,Out for Delivery,1704
+ONL00160,Customer_160,+918277247674,customer160@example.com,Himachal Pradesh,City_15,550409,Chicken Biryani,4,181,2025-05-17,Home Delivery,Debit Card,Preparing,724
+ONL00161,Customer_161,+919137454971,customer161@example.com,Haryana,City_15,278017,Idli Sambar,5,294,2025-01-27,Home Delivery,Cash on Delivery,Cancelled,1470
+ONL00162,Customer_162,+918966462697,customer162@example.com,Gujarat,City_17,990281,Paneer Butter Masala,3,493,2025-04-14,Home Delivery,Credit Card,Cancelled,1479
+ONL00163,Customer_163,+919319005595,customer163@example.com,Bihar,City_36,941720,Rogan Josh,1,262,2025-05-17,Home Delivery,Credit Card,Out for Delivery,262
+ONL00164,Customer_164,+917255650523,customer164@example.com,Haryana,City_50,248736,Pav Bhaji,3,468,2025-05-24,Home Delivery,UPI,Pending,1404
+ONL00165,Customer_165,+916839121371,customer165@example.com,Kerala,City_21,381486,Fish Curry,1,335,2025-05-04,Home Delivery,Cash on Delivery,Cancelled,335
+ONL00166,Customer_166,+916313190366,customer166@example.com,Maharashtra,City_27,235146,Paneer Butter Masala,1,331,2025-07-14,Home Delivery,UPI,Out for Delivery,331
+ONL00167,Customer_167,+918123574782,customer167@example.com,Telangana,City_8,397794,Paneer Butter Masala,5,395,2025-03-22,Home Delivery,UPI,Cancelled,1975
+ONL00168,Customer_168,+917143596030,customer168@example.com,Odisha,City_31,769392,Momos,4,209,2025-03-08,Home Delivery,Net Banking,Pending,836
+ONL00169,Customer_169,+919233508628,customer169@example.com,Andhra Pradesh,City_45,664722,Pav Bhaji,2,213,2025-06-08,Home Delivery,Net Banking,Delivered,426
+ONL00170,Customer_170,+917417224529,customer170@example.com,West Bengal,City_14,571347,Masala Dosa,5,225,2025-06-27,Home Delivery,Net Banking,Cancelled,1125
+ONL00171,Customer_171,+918070796603,customer171@example.com,Chhattisgarh,City_7,384966,Chole Bhature,5,399,2025-04-28,Home Delivery,UPI,Delivered,1995
+ONL00172,Customer_172,+917902295802,customer172@example.com,Uttarakhand,City_39,644697,Fish Curry,5,338,2025-03-10,Home Delivery,UPI,Pending,1690
+ONL00173,Customer_173,+917020298324,customer173@example.com,Telangana,City_32,914473,Veg Pulao,5,302,2025-06-17,Home Delivery,UPI,Out for Delivery,1510
+ONL00174,Customer_174,+916296257058,customer174@example.com,Tripura,City_41,643456,Pav Bhaji,5,463,2025-05-05,Home Delivery,Credit Card,Delivered,2315
+ONL00175,Customer_175,+919372762716,customer175@example.com,Meghalaya,City_23,390570,Paneer Butter Masala,5,405,2025-02-26,Pickup,Credit Card,Out for Delivery,2025
+ONL00176,Customer_176,+916105229321,customer176@example.com,Manipur,City_23,480547,Veg Pulao,2,435,2025-05-02,Home Delivery,Debit Card,Out for Delivery,870
+ONL00177,Customer_177,+917295068490,customer177@example.com,Telangana,City_28,328172,Veg Pulao,2,294,2025-07-16,Home Delivery,Credit Card,Out for Delivery,588
+ONL00178,Customer_178,+919117189168,customer178@example.com,Maharashtra,City_32,431891,Pav Bhaji,3,295,2025-03-27,Home Delivery,Net Banking,Cancelled,885
+ONL00179,Customer_179,+918804789968,customer179@example.com,Puducherry,City_12,779498,Pav Bhaji,3,143,2025-07-06,Home Delivery,Net Banking,Preparing,429
+ONL00180,Customer_180,+919191546912,customer180@example.com,Madhya Pradesh,City_15,915945,Rogan Josh,4,343,2025-07-07,Home Delivery,Cash on Delivery,Out for Delivery,1372
+ONL00181,Customer_181,+919208413461,customer181@example.com,Andhra Pradesh,City_43,380934,Rogan Josh,4,159,2025-03-09,Pickup,Net Banking,Delivered,636
+ONL00182,Customer_182,+916829419297,customer182@example.com,Uttar Pradesh,City_37,631570,Paneer Butter Masala,4,277,2025-01-21,Pickup,Debit Card,Cancelled,1108
+ONL00183,Customer_183,+916668825121,customer183@example.com,Uttarakhand,City_16,565807,Fish Curry,1,327,2025-01-04,Pickup,Net Banking,Delivered,327
+ONL00184,Customer_184,+917848455197,customer184@example.com,Rajasthan,City_34,942048,Rogan Josh,5,377,2025-06-10,Pickup,Credit Card,Delivered,1885
+ONL00185,Customer_185,+916600468030,customer185@example.com,Gujarat,City_38,914359,Chicken Biryani,2,379,2025-02-25,Home Delivery,UPI,Cancelled,758
+ONL00186,Customer_186,+918976886430,customer186@example.com,Haryana,City_30,102837,Chole Bhature,3,416,2025-01-07,Pickup,Net Banking,Delivered,1248
+ONL00187,Customer_187,+919038280301,customer187@example.com,Maharashtra,City_30,909739,Fish Curry,5,237,2025-01-24,Home Delivery,Net Banking,Cancelled,1185
+ONL00188,Customer_188,+919178715075,customer188@example.com,Andhra Pradesh,City_27,546743,Idli Sambar,4,294,2025-02-15,Pickup,Debit Card,Out for Delivery,1176
+ONL00189,Customer_189,+917492298047,customer189@example.com,Himachal Pradesh,City_49,926248,Idli Sambar,3,333,2025-05-16,Pickup,Debit Card,Pending,999
+ONL00190,Customer_190,+916936987073,customer190@example.com,Karnataka,City_34,505363,Fish Curry,4,365,2025-05-01,Home Delivery,UPI,Delivered,1460
+ONL00191,Customer_191,+917931803694,customer191@example.com,Goa,City_26,512529,Chole Bhature,5,111,2025-05-12,Pickup,UPI,Preparing,555
+ONL00192,Customer_192,+916684741819,customer192@example.com,Puducherry,City_27,882535,Rogan Josh,4,162,2025-02-05,Home Delivery,Debit Card,Cancelled,648
+ONL00193,Customer_193,+916039224971,customer193@example.com,West Bengal,City_39,424791,Momos,3,247,2025-03-15,Home Delivery,Cash on Delivery,Preparing,741
+ONL00194,Customer_194,+917998149679,customer194@example.com,Uttar Pradesh,City_27,433460,Momos,3,453,2025-03-14,Home Delivery,UPI,Cancelled,1359
+ONL00195,Customer_195,+919917055532,customer195@example.com,Tamil Nadu,City_30,691552,Chicken Biryani,4,491,2025-06-27,Pickup,UPI,Delivered,1964
+ONL00196,Customer_196,+917331358435,customer196@example.com,Assam,City_8,447383,Fish Curry,5,140,2025-07-17,Pickup,UPI,Delivered,700
+ONL00197,Customer_197,+918972177891,customer197@example.com,Kerala,City_50,644811,Pav Bhaji,5,133,2025-05-24,Pickup,Cash on Delivery,Pending,665
+ONL00198,Customer_198,+918856059069,customer198@example.com,Sikkim,City_10,339957,Pav Bhaji,1,106,2025-04-17,Home Delivery,Cash on Delivery,Delivered,106
+ONL00199,Customer_199,+916409541060,customer199@example.com,Odisha,City_39,918623,Fish Curry,1,234,2025-06-06,Pickup,UPI,Preparing,234
+ONL00200,Customer_200,+917043591940,customer200@example.com,Andhra Pradesh,City_43,870582,Pav Bhaji,1,163,2025-06-22,Pickup,UPI,Pending,163
+ONL00201,Customer_201,+916679433199,customer201@example.com,Telangana,City_20,793472,Idli Sambar,1,314,2025-02-04,Home Delivery,UPI,Out for Delivery,314
+ONL00202,Customer_202,+919228804056,customer202@example.com,Maharashtra,City_19,479855,Veg Pulao,2,446,2025-07-13,Pickup,Credit Card,Preparing,892
+ONL00203,Customer_203,+918793996379,customer203@example.com,Goa,City_2,506632,Veg Pulao,2,128,2025-02-23,Pickup,UPI,Cancelled,256
+ONL00204,Customer_204,+919658118041,customer204@example.com,Manipur,City_30,622470,Chicken Biryani,4,215,2025-01-19,Home Delivery,UPI,Delivered,860
+ONL00205,Customer_205,+917965930495,customer205@example.com,Tamil Nadu,City_17,620477,Idli Sambar,3,170,2025-05-05,Home Delivery,UPI,Pending,510
+ONL00206,Customer_206,+916044400636,customer206@example.com,Chhattisgarh,City_7,201143,Masala Dosa,4,427,2025-05-28,Home Delivery,Credit Card,Out for Delivery,1708
+ONL00207,Customer_207,+916898260492,customer207@example.com,Kerala,City_39,384561,Fish Curry,2,145,2025-07-10,Home Delivery,Cash on Delivery,Pending,290
+ONL00208,Customer_208,+917175104708,customer208@example.com,Arunachal Pradesh,City_30,603026,Rogan Josh,5,368,2025-01-15,Home Delivery,Net Banking,Pending,1840
+ONL00209,Customer_209,+918613428733,customer209@example.com,Meghalaya,City_6,489733,Fish Curry,3,480,2025-03-28,Home Delivery,Cash on Delivery,Cancelled,1440
+ONL00210,Customer_210,+916169496222,customer210@example.com,Manipur,City_6,934518,Chole Bhature,2,390,2025-01-01,Home Delivery,Cash on Delivery,Cancelled,780
+ONL00211,Customer_211,+916344542603,customer211@example.com,Karnataka,City_10,966348,Chole Bhature,4,489,2025-04-20,Home Delivery,Credit Card,Delivered,1956
+ONL00212,Customer_212,+919716101591,customer212@example.com,Meghalaya,City_20,114573,Momos,4,423,2025-05-31,Pickup,Credit Card,Pending,1692
+ONL00213,Customer_213,+917398363464,customer213@example.com,Mizoram,City_10,530060,Momos,2,273,2025-04-05,Home Delivery,Cash on Delivery,Preparing,546
+ONL00214,Customer_214,+916487094926,customer214@example.com,Jharkhand,City_22,302739,Chicken Biryani,1,212,2025-06-07,Home Delivery,Credit Card,Cancelled,212
+ONL00215,Customer_215,+918377168372,customer215@example.com,Uttar Pradesh,City_41,591373,Chicken Biryani,2,305,2025-01-23,Pickup,Debit Card,Cancelled,610
+ONL00216,Customer_216,+918534600451,customer216@example.com,Chhattisgarh,City_4,322055,Pav Bhaji,2,145,2025-01-24,Home Delivery,Cash on Delivery,Pending,290
+ONL00217,Customer_217,+916203452793,customer217@example.com,Uttarakhand,City_45,185631,Chicken Biryani,2,336,2025-01-14,Pickup,Debit Card,Delivered,672
+ONL00218,Customer_218,+917820422053,customer218@example.com,Kerala,City_13,603951,Veg Pulao,1,148,2025-04-30,Pickup,Cash on Delivery,Preparing,148
+ONL00219,Customer_219,+918166665098,customer219@example.com,Goa,City_50,155394,Rogan Josh,4,117,2025-02-18,Home Delivery,Cash on Delivery,Preparing,468
+ONL00220,Customer_220,+919035215050,customer220@example.com,Punjab,City_37,122180,Paneer Butter Masala,2,434,2025-06-22,Pickup,Credit Card,Cancelled,868
+ONL00221,Customer_221,+917487358001,customer221@example.com,Uttar Pradesh,City_15,585487,Pav Bhaji,4,247,2025-05-16,Home Delivery,Net Banking,Preparing,988
+ONL00222,Customer_222,+917832203018,customer222@example.com,Goa,City_32,868346,Veg Pulao,3,466,2025-05-07,Pickup,Net Banking,Delivered,1398
+ONL00223,Customer_223,+918051783039,customer223@example.com,Puducherry,City_3,780560,Momos,5,364,2025-01-15,Pickup,Debit Card,Delivered,1820
+ONL00224,Customer_224,+916032803175,customer224@example.com,Haryana,City_45,879533,Pav Bhaji,4,282,2025-04-20,Pickup,Net Banking,Cancelled,1128
+ONL00225,Customer_225,+917676147571,customer225@example.com,Delhi,City_38,545675,Idli Sambar,5,374,2025-03-07,Pickup,Debit Card,Delivered,1870
+ONL00226,Customer_226,+916455394166,customer226@example.com,Maharashtra,City_35,487640,Masala Dosa,2,285,2025-05-07,Pickup,UPI,Preparing,570
+ONL00227,Customer_227,+918524100996,customer227@example.com,Arunachal Pradesh,City_10,191520,Paneer Butter Masala,3,200,2025-02-19,Pickup,UPI,Preparing,600
+ONL00228,Customer_228,+919660588776,customer228@example.com,Assam,City_18,598776,Fish Curry,3,306,2025-04-04,Pickup,UPI,Pending,918
+ONL00229,Customer_229,+918412469241,customer229@example.com,Delhi,City_26,960920,Paneer Butter Masala,2,482,2025-03-26,Home Delivery,Credit Card,Delivered,964
+ONL00230,Customer_230,+919500724244,customer230@example.com,Nagaland,City_36,419167,Paneer Butter Masala,4,137,2025-06-16,Home Delivery,Cash on Delivery,Delivered,548
+ONL00231,Customer_231,+916814638078,customer231@example.com,Uttarakhand,City_28,969939,Veg Pulao,5,337,2025-04-14,Pickup,UPI,Cancelled,1685
+ONL00232,Customer_232,+916098308251,customer232@example.com,West Bengal,City_8,376785,Fish Curry,4,409,2025-07-06,Home Delivery,Cash on Delivery,Pending,1636
+ONL00233,Customer_233,+917161510197,customer233@example.com,Punjab,City_48,513854,Fish Curry,5,136,2025-02-13,Home Delivery,Debit Card,Preparing,680
+ONL00234,Customer_234,+919032125161,customer234@example.com,Chhattisgarh,City_14,575464,Masala Dosa,3,240,2025-06-21,Home Delivery,Debit Card,Pending,720
+ONL00235,Customer_235,+917370184725,customer235@example.com,Telangana,City_11,580110,Fish Curry,1,294,2025-07-13,Pickup,Credit Card,Cancelled,294
+ONL00236,Customer_236,+917264636947,customer236@example.com,Gujarat,City_3,759903,Momos,4,364,2025-06-02,Pickup,Net Banking,Out for Delivery,1456
+ONL00237,Customer_237,+918192335341,customer237@example.com,West Bengal,City_19,393220,Momos,4,461,2025-05-09,Home Delivery,Debit Card,Delivered,1844
+ONL00238,Customer_238,+916860322634,customer238@example.com,Puducherry,City_36,817837,Fish Curry,3,237,2025-03-24,Home Delivery,Debit Card,Out for Delivery,711
+ONL00239,Customer_239,+916826296940,customer239@example.com,Himachal Pradesh,City_4,719574,Idli Sambar,2,202,2025-05-18,Pickup,UPI,Cancelled,404
+ONL00240,Customer_240,+916347229724,customer240@example.com,Rajasthan,City_8,362709,Chole Bhature,5,160,2025-05-03,Pickup,Debit Card,Pending,800
+ONL00241,Customer_241,+919381572032,customer241@example.com,Haryana,City_28,335005,Pav Bhaji,3,305,2025-02-19,Pickup,Net Banking,Out for Delivery,915
+ONL00242,Customer_242,+916226016693,customer242@example.com,Himachal Pradesh,City_34,897334,Pav Bhaji,3,368,2025-04-12,Pickup,Net Banking,Preparing,1104
+ONL00243,Customer_243,+917879921319,customer243@example.com,Goa,City_34,217130,Chole Bhature,5,385,2025-03-13,Pickup,UPI,Out for Delivery,1925
+ONL00244,Customer_244,+916489790547,customer244@example.com,Gujarat,City_22,909425,Chole Bhature,3,391,2025-05-19,Pickup,Cash on Delivery,Out for Delivery,1173
+ONL00245,Customer_245,+917392344747,customer245@example.com,Arunachal Pradesh,City_11,852693,Rogan Josh,4,490,2025-05-18,Pickup,Credit Card,Delivered,1960
+ONL00246,Customer_246,+917951955418,customer246@example.com,Punjab,City_48,578766,Fish Curry,4,270,2025-02-10,Pickup,UPI,Out for Delivery,1080
+ONL00247,Customer_247,+916352433632,customer247@example.com,Tripura,City_5,781005,Veg Pulao,1,138,2025-04-14,Pickup,UPI,Cancelled,138
+ONL00248,Customer_248,+919857175065,customer248@example.com,Sikkim,City_10,134208,Rogan Josh,1,471,2025-06-05,Pickup,Net Banking,Preparing,471
+ONL00249,Customer_249,+918196879275,customer249@example.com,Karnataka,City_17,897739,Veg Pulao,3,204,2025-04-06,Home Delivery,Credit Card,Out for Delivery,612
+ONL00250,Customer_250,+919061360197,customer250@example.com,Nagaland,City_41,534842,Idli Sambar,2,246,2025-04-22,Home Delivery,Cash on Delivery,Pending,492
+ONL00251,Customer_251,+918240299910,customer251@example.com,Puducherry,City_32,853068,Chole Bhature,4,272,2025-02-16,Home Delivery,Cash on Delivery,Preparing,1088
+ONL00252,Customer_252,+918626218693,customer252@example.com,Nagaland,City_23,434626,Chicken Biryani,4,335,2025-02-24,Home Delivery,Cash on Delivery,Cancelled,1340
+ONL00253,Customer_253,+916662424481,customer253@example.com,Telangana,City_46,106271,Pav Bhaji,5,384,2025-03-03,Pickup,UPI,Preparing,1920
+ONL00254,Customer_254,+916798029354,customer254@example.com,Jharkhand,City_49,225399,Chole Bhature,4,120,2025-06-30,Home Delivery,UPI,Delivered,480
+ONL00255,Customer_255,+918593842383,customer255@example.com,Bihar,City_3,879324,Paneer Butter Masala,3,220,2025-04-07,Pickup,Credit Card,Cancelled,660
+ONL00256,Customer_256,+916107303848,customer256@example.com,Tripura,City_27,364608,Masala Dosa,5,220,2025-03-03,Pickup,Debit Card,Delivered,1100
+ONL00257,Customer_257,+917736083608,customer257@example.com,Haryana,City_44,177535,Paneer Butter Masala,2,357,2025-06-07,Pickup,UPI,Cancelled,714
+ONL00258,Customer_258,+919301849656,customer258@example.com,Uttarakhand,City_47,184470,Idli Sambar,2,194,2025-02-15,Pickup,Cash on Delivery,Cancelled,388
+ONL00259,Customer_259,+919130980353,customer259@example.com,Tamil Nadu,City_45,811555,Masala Dosa,4,183,2025-07-06,Pickup,Net Banking,Cancelled,732
+ONL00260,Customer_260,+916067128318,customer260@example.com,Jharkhand,City_14,781795,Veg Pulao,1,403,2025-06-07,Pickup,Credit Card,Pending,403
+ONL00261,Customer_261,+918433891502,customer261@example.com,Assam,City_8,101866,Idli Sambar,5,437,2025-03-05,Pickup,Net Banking,Out for Delivery,2185
+ONL00262,Customer_262,+918532754237,customer262@example.com,Tripura,City_9,991457,Pav Bhaji,5,362,2025-03-18,Home Delivery,UPI,Preparing,1810
+ONL00263,Customer_263,+919823986303,customer263@example.com,Kerala,City_3,498799,Fish Curry,3,419,2025-07-19,Pickup,Cash on Delivery,Preparing,1257
+ONL00264,Customer_264,+917504672456,customer264@example.com,Goa,City_5,826925,Momos,1,435,2025-03-08,Pickup,Credit Card,Out for Delivery,435
+ONL00265,Customer_265,+919826048761,customer265@example.com,Mizoram,City_50,391066,Pav Bhaji,2,162,2025-02-08,Pickup,Credit Card,Preparing,324
+ONL00266,Customer_266,+919472919332,customer266@example.com,Gujarat,City_4,798565,Chole Bhature,2,453,2025-03-05,Home Delivery,Credit Card,Cancelled,906
+ONL00267,Customer_267,+916886806421,customer267@example.com,Madhya Pradesh,City_48,327332,Rogan Josh,5,458,2025-01-04,Home Delivery,Credit Card,Cancelled,2290
+ONL00268,Customer_268,+916415622473,customer268@example.com,Uttarakhand,City_3,860085,Fish Curry,3,481,2025-03-11,Home Delivery,Debit Card,Preparing,1443
+ONL00269,Customer_269,+918643879965,customer269@example.com,Tamil Nadu,City_12,399608,Chicken Biryani,5,155,2025-01-18,Pickup,UPI,Preparing,775
+ONL00270,Customer_270,+919282624566,customer270@example.com,Madhya Pradesh,City_18,726993,Chicken Biryani,3,335,2025-02-03,Pickup,UPI,Out for Delivery,1005
+ONL00271,Customer_271,+917504376635,customer271@example.com,Gujarat,City_20,855646,Pav Bhaji,1,491,2025-04-06,Pickup,Cash on Delivery,Preparing,491
+ONL00272,Customer_272,+917215920286,customer272@example.com,Tripura,City_50,114416,Momos,5,251,2025-03-11,Pickup,UPI,Cancelled,1255
+ONL00273,Customer_273,+916753554075,customer273@example.com,Punjab,City_8,523451,Fish Curry,4,393,2025-07-20,Pickup,Net Banking,Cancelled,1572
+ONL00274,Customer_274,+916123131619,customer274@example.com,Karnataka,City_23,294156,Chicken Biryani,3,162,2025-07-07,Home Delivery,Debit Card,Delivered,486
+ONL00275,Customer_275,+919742040808,customer275@example.com,Maharashtra,City_23,703670,Paneer Butter Masala,5,269,2025-01-22,Home Delivery,Debit Card,Cancelled,1345
+ONL00276,Customer_276,+917727135829,customer276@example.com,Karnataka,City_16,255888,Fish Curry,1,322,2025-01-01,Home Delivery,Net Banking,Preparing,322
+ONL00277,Customer_277,+917105460072,customer277@example.com,Uttarakhand,City_48,248591,Pav Bhaji,4,371,2025-05-21,Home Delivery,Credit Card,Cancelled,1484
+ONL00278,Customer_278,+916296174641,customer278@example.com,Punjab,City_44,584924,Momos,1,360,2025-07-13,Home Delivery,Cash on Delivery,Delivered,360
+ONL00279,Customer_279,+916323602907,customer279@example.com,Puducherry,City_25,454384,Paneer Butter Masala,5,500,2025-03-01,Home Delivery,Cash on Delivery,Cancelled,2500
+ONL00280,Customer_280,+916247025414,customer280@example.com,Goa,City_32,673973,Rogan Josh,4,466,2025-06-12,Pickup,Net Banking,Delivered,1864
+ONL00281,Customer_281,+916483332750,customer281@example.com,Bihar,City_36,837469,Masala Dosa,4,361,2025-01-29,Pickup,Cash on Delivery,Out for Delivery,1444
+ONL00282,Customer_282,+917459750044,customer282@example.com,Tamil Nadu,City_24,942054,Idli Sambar,2,469,2025-03-07,Pickup,Cash on Delivery,Cancelled,938
+ONL00283,Customer_283,+919950625912,customer283@example.com,Uttar Pradesh,City_29,747948,Chicken Biryani,5,219,2025-01-17,Home Delivery,Credit Card,Delivered,1095
+ONL00284,Customer_284,+917506090832,customer284@example.com,Bihar,City_48,824516,Masala Dosa,1,442,2025-06-01,Pickup,UPI,Delivered,442
+ONL00285,Customer_285,+919855957049,customer285@example.com,Puducherry,City_9,249013,Idli Sambar,4,295,2025-06-18,Home Delivery,Cash on Delivery,Delivered,1180
+ONL00286,Customer_286,+916104862018,customer286@example.com,Kerala,City_10,474389,Masala Dosa,5,159,2025-05-01,Home Delivery,Net Banking,Cancelled,795
+ONL00287,Customer_287,+916902559903,customer287@example.com,Uttarakhand,City_8,589939,Rogan Josh,4,357,2025-02-14,Pickup,Credit Card,Preparing,1428
+ONL00288,Customer_288,+917279342758,customer288@example.com,Assam,City_18,929175,Idli Sambar,2,333,2025-06-23,Home Delivery,Credit Card,Preparing,666
+ONL00289,Customer_289,+917376415446,customer289@example.com,Punjab,City_41,163891,Masala Dosa,5,121,2025-02-22,Pickup,Cash on Delivery,Cancelled,605
+ONL00290,Customer_290,+916148748138,customer290@example.com,Andhra Pradesh,City_39,852910,Chicken Biryani,3,186,2025-04-30,Home Delivery,UPI,Cancelled,558
+ONL00291,Customer_291,+918429476441,customer291@example.com,Nagaland,City_28,150251,Veg Pulao,1,326,2025-07-16,Pickup,Cash on Delivery,Preparing,326
+ONL00292,Customer_292,+918114187302,customer292@example.com,Chhattisgarh,City_6,904406,Veg Pulao,5,500,2025-03-23,Pickup,Credit Card,Pending,2500
+ONL00293,Customer_293,+917711821127,customer293@example.com,Chhattisgarh,City_25,910065,Rogan Josh,2,424,2025-04-10,Pickup,Credit Card,Preparing,848
+ONL00294,Customer_294,+917672112374,customer294@example.com,Karnataka,City_39,559256,Fish Curry,3,436,2025-07-03,Pickup,Net Banking,Cancelled,1308
+ONL00295,Customer_295,+917279018867,customer295@example.com,Uttar Pradesh,City_38,140217,Chole Bhature,5,431,2025-02-24,Pickup,Cash on Delivery,Out for Delivery,2155
+ONL00296,Customer_296,+916817615144,customer296@example.com,Mizoram,City_22,725690,Chicken Biryani,1,290,2025-02-25,Pickup,Net Banking,Delivered,290
+ONL00297,Customer_297,+919402532224,customer297@example.com,Himachal Pradesh,City_9,534905,Momos,2,175,2025-06-16,Home Delivery,Credit Card,Out for Delivery,350
+ONL00298,Customer_298,+919359250114,customer298@example.com,Delhi,City_29,303132,Chicken Biryani,1,259,2025-03-03,Pickup,Credit Card,Pending,259
+ONL00299,Customer_299,+916573144518,customer299@example.com,Kerala,City_2,975092,Chole Bhature,2,346,2025-05-06,Pickup,Debit Card,Out for Delivery,692
+ONL00300,Customer_300,+917664451465,customer300@example.com,Manipur,City_17,421237,Veg Pulao,5,415,2025-06-13,Pickup,Debit Card,Preparing,2075
