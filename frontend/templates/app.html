@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Restaurant Ocean Pearl -India</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="logo" aria-label="brand"></span>
+        <span>Restaurant Ocean Pearl</span>
+      </a>
+      <nav class="menu" aria-label="Primary">
+        <a href="#menu">Menu</a>
+        <a href="#happy">Meal</a>
+        <a href="#delivery">Delivery</a>
+        <a href="#news">News</a>
+        <a href="#offers">Offers</a>
+      </nav>
+      <button class="hamb" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero-wrap">
+    <div class="container hero" id="top">
+      <div class="hero-text">
+        <div class="hero-kicker">INTRODUCING</div>
+        <h1 class="hero-title">The Ocean<br> Signature Meal</h1>
+        <p class="hero-copy">Available now at Ocean Pearl. Terms apply.</p>
+        <div class="hero-cta">
+          <button class="btn primary"><i class="fa-solid fa-bag-shopping"></i> Order Now</button>
+          <button class="btn ghost">View Menu</button>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="hero-card" role="img" aria-label="Meal photo"><img src="{{ url_for('static', filename='assets/Special_Meal.jpg') }}" alt="meal image"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <div class="container" id="menu">
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="burgers">Burgers &amp; Wraps</button>
+      <button class="tab" data-tab="snacks">Snacks &amp; Sides</button>
+      <button class="tab" data-tab="desserts">Desserts</button>
+      <button class="tab" data-tab="beverages">Beverages</button>
+      <button class="tab" data-tab="news">Pizzas &amp; Grills </button>
+      <button class="tab" data-tab="happy">Meal</button>
+    </div>
+
+    <!-- Feature Product -->
+    <section class="feature" id="feature">
+      <div>
+        <span class="pill">Special Chicken Mac</span>
+        <h3>A surprise that will leave you wide-eyed</h3>
+        <p class="p">Freshly toasted buns, crispy patty, melty cheese, crunchy lettuce and our signature sauce.</p>
+        <div class="meta">
+          <span class="chip">Spicy</span>
+          <span class="chip">Cheesy</span>
+          <span class="chip">Value</span>
+        </div>
+        <div class="hero-cta">
+          <button class="btn primary">Add to Cart</button>
+          <button class="btn ghost">Ingredients</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="{{ url_for('static', filename='assets/Triple_Mac_chicekn_bug.jpg') }}" alt="Burger on plate">
+      </div>
+    </section>
+    <section>
+      <div class="feature" id="feature">
+        <h2>Burgers &amp; Wraps</h2>
+        <p class="p">Our signature burgers and wraps, crafted with quality ingredients.</p>
+        <div class="items">
+          <div class="item">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" alt="">
+            <h4>Veg Surprise Burger</h4>
+            <p class="p">A surprise that will leave you wide-eyed.</p>
+          </div>
+          <div class="item">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" alt="">
+            <h4>Chicken Delight Wrap</h4>
+            <p class="p">Tender chicken wrapped in a soft tortilla.</p>
+          </div>
+          <div class="item">
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" alt="">
+            <h4>Spicy Paneer Burger</h4>
+            <p class="p">Paneer patty with a spicy kick.</p>
+          </div>
+        </div>
+
+    </section>
+
+    <!-- Icon grid (Happy Meal app style) -->
+    <section class="icon-grid" id="happy">
+      <div class="icon-item">
+        <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
+        <h4>Happy Meal App</h4>
+        <p class="p">Discover playful learning with books and games.</p>
+      </div>
+      <div class="icon-item">
+        <div class="icon"><i class="fa-solid fa-book"></i></div>
+        <h4>Readers</h4>
+        <p class="p">A selection of delightful storybooks for kids.</p>
+      </div>
+      <div class="icon-item">
+        <div class="icon"><i class="fa-solid fa-gamepad"></i></div>
+        <h4>Mini games</h4>
+        <p class="p">Create happy moments anytime.</p>
+      </div>
+      <div class="icon-item">
+        <div class="icon"><i class="fa-solid fa-compass"></i></div>
+        <h4>Explore &amp; learn</h4>
+        <p class="p">Curiosity-sparking activities for little minds.</p>
+      </div>
+    </section>
+
+    <!-- Readers cards -->
+    <section class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="p"><strong>Outer-Space Adventures</strong><br><small>Why do rockets fly?</small></div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="p"><strong>Ocean Friends</strong><br><small>Meet cheerful sea creatures</small></div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="p"><strong>Colors &amp; Shapes</strong><br><small>Playful learning for kids</small></div>
+      </div>
+    </section>
+
+    <!-- Delivery split -->
+    <section class="split" id="delivery">
+      <div class="panel">
+        <h2>Order for Home-Delivered Smiles</h2>
+        <p>With safe, speedy doorstep delivery from our restaurant partners.</p>
+        <div class="hero-cta">
+          <button class="btn primary"><i class="fa-solid fa-motorcycle"></i> Order Now</button>
+        </div>
+      </div>
+      <div class="panel yellow">
+        <h3>We’re open for dine-in &amp; takeaway</h3>
+        <p>Find a restaurant near you and enjoy your favourites.</p>
+        <div class="hero-cta">
+          <button class="btn ghost">Find a Store</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- News & highlights -->
+  <section class="container" id="news" aria-label="News and Highlights">
+    <h2 style="margin:.25rem 0 1rem">News &amp; Highlights</h2>
+    <div class="news">
+      <article class="tile lead">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="p">
+          <h3>We’re hiring 5,000 people; doubling stores in North &amp; East</h3>
+          <small>Pressroom • 2 min read</small>
+        </div>
+      </article>
+      <article class="tile">
+        <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="p"><strong>New dessert lineup</strong><br><small>Chilled treats for summer</small></div>
+      </article>
+      <article class="tile">
+        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="p"><strong>Festive offers</strong><br><small>Limited-time combos</small></div>
+      </article>
+      <article class="tile">
+        <img src="https://images.unsplash.com/photo-1604908176997-4313b3a507ee?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="p"><strong>CSR &amp; community</strong><br><small>Growing with neighborhoods</small></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Offers & subscribe -->
+  <section class="container offers" id="offers">
+    <div>
+      <h2>Special Offers &amp; News</h2>
+      <p>Get updates about new launches and exclusive deals.</p>
+      <form class="sub" onsubmit="event.preventDefault(); alert('Thanks! You are subscribed.');">
+        <input type="email" placeholder="Your email address" required>
+        <button class="btn primary" type="submit">Subscribe</button>
+      </form>
+      <small>We respect your privacy. Unsubscribe anytime.</small>
+    </div>
+    <div style="display:flex;align-items:end;justify-content:center;">
+      <img style="width:min(420px,100%);" src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop" alt="Offers visual">
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer">
+      <div class="foot-col">
+        <div class="brand" style="margin-bottom:.5rem">
+          <span class="logo"></span><span>Restaurant</span>
+        </div>
+        <p class="p" style="max-width:38ch;color:#666">Serving smiles with quality ingredients and quick service across India.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Menu</h5>
+        <a href="#menu">Burgers &amp; Wraps</a>
+        <a href="#menu">Snacks &amp; Sides</a>
+        <a href="#menu">Desserts</a>
+        <a href="#menu">Beverages</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#news">Pressroom</a>
+        <a href="#">Careers</a>
+        <a href="#">Franchising</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+    <div class="container foot-bottom">
+      <div>© 2025 Restaurant. For demo/educational use.</div>
+      <div style="display:flex;gap:.75rem">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tiny tabs demo (just switches active styles)
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+    }));
+  </script>
+</body>
+</html>
