@@ -15,8 +15,8 @@
   <!-- Topbar -->
   <div class="topbar">
     <div class="container nav">
-      <a class="brand" href="#">
-        <span class="logo" aria-label="brand"></span>
+      <a class="brand" href="#" style="margin-left:-100px;">
+        <span class="logo"><img src="{{ url_for('static',filename='assets/Rest_logo.ico')}}"></span>
         <span>Restaurant Ocean Pearl</span>
       </a>
       <nav class="menu" aria-label="Primary">
@@ -29,6 +29,16 @@
       <button class="hamb" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
+
+
+    <!-- Ocean Signature Meal Tagline Section -->
+    <div class="signature-meal-tagline" style="display:flex; align-items:center; justify-content:flex-start; gap:32px; background:#f0f8ff; padding:24px 0 16px 0; margin-bottom:10px; border-radius:12px; width:100%; box-sizing:border-box;">
+      <img src="{{ url_for('static', filename='assets/Rest_cover.jpg') }}" alt="Ocean Signature Meal" style="height:120px; width:auto; border-radius:12px; box-shadow:0 2px 12px #b2d8e6; margin-left:32px;">
+      <div style="font-size:1.5rem; color:#1d044a; font-weight:600; text-align:left;">
+        <span style="display:block; font-size:3rem; color:#49066b; font-weight:400; margin-bottom:4px;">Ocean Pearl</span>
+        Dive into Deliciousness, Taste the Freshness, Feel the Pearl at the Ocean Pearl!
+      </div>
+    </div>
 
   <!-- Hero -->
   <section class="hero-wrap">
@@ -102,47 +112,6 @@
         </div>
 
     </section>
-
-    <!-- Icon grid (Happy Meal app style) -->
-    <section class="icon-grid" id="happy">
-      <div class="icon-item">
-        <div class="icon"><i class="fa-solid fa-mobile-screen"></i></div>
-        <h4>Happy Meal App</h4>
-        <p class="p">Discover playful learning with books and games.</p>
-      </div>
-      <div class="icon-item">
-        <div class="icon"><i class="fa-solid fa-book"></i></div>
-        <h4>Readers</h4>
-        <p class="p">A selection of delightful storybooks for kids.</p>
-      </div>
-      <div class="icon-item">
-        <div class="icon"><i class="fa-solid fa-gamepad"></i></div>
-        <h4>Mini games</h4>
-        <p class="p">Create happy moments anytime.</p>
-      </div>
-      <div class="icon-item">
-        <div class="icon"><i class="fa-solid fa-compass"></i></div>
-        <h4>Explore &amp; learn</h4>
-        <p class="p">Curiosity-sparking activities for little minds.</p>
-      </div>
-    </section>
-
-    <!-- Readers cards -->
-    <section class="cards">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?q=80&w=1200&auto=format&fit=crop" alt="">
-        <div class="p"><strong>Outer-Space Adventures</strong><br><small>Why do rockets fly?</small></div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200&auto=format&fit=crop" alt="">
-        <div class="p"><strong>Ocean Friends</strong><br><small>Meet cheerful sea creatures</small></div>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="">
-        <div class="p"><strong>Colors &amp; Shapes</strong><br><small>Playful learning for kids</small></div>
-      </div>
-    </section>
-
     <!-- Delivery split -->
     <section class="split" id="delivery">
       <div class="panel">
@@ -162,34 +131,9 @@
     </section>
   </div>
 
-  <!-- News & highlights -->
-  <section class="container" id="news" aria-label="News and Highlights">
-    <h2 style="margin:.25rem 0 1rem">News &amp; Highlights</h2>
-    <div class="news">
-      <article class="tile lead">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop" alt="">
-        <div class="p">
-          <h3>We’re hiring 5,000 people; doubling stores in North &amp; East</h3>
-          <small>Pressroom • 2 min read</small>
-        </div>
-      </article>
-      <article class="tile">
-        <img src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop" alt="">
-        <div class="p"><strong>New dessert lineup</strong><br><small>Chilled treats for summer</small></div>
-      </article>
-      <article class="tile">
-        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1200&auto=format&fit=crop" alt="">
-        <div class="p"><strong>Festive offers</strong><br><small>Limited-time combos</small></div>
-      </article>
-      <article class="tile">
-        <img src="https://images.unsplash.com/photo-1604908176997-4313b3a507ee?q=80&w=1200&auto=format&fit=crop" alt="">
-        <div class="p"><strong>CSR &amp; community</strong><br><small>Growing with neighborhoods</small></div>
-      </article>
-    </div>
-  </section>
 
   <!-- Offers & subscribe -->
-  <section class="container offers" id="offers">
+  <section class="container offers" id="offers" style="margin-left: 100px;">
     <div>
       <h2>Special Offers &amp; News</h2>
       <p>Get updates about new launches and exclusive deals.</p>
@@ -200,7 +144,7 @@
       <small>We respect your privacy. Unsubscribe anytime.</small>
     </div>
     <div style="display:flex;align-items:end;justify-content:center;">
-      <img style="width:min(420px,100%);" src="https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=1200&auto=format&fit=crop" alt="Offers visual">
+      <img style="width:min(420px,100%);" src="{{url_for('static',filename='assets/Rest_front_page.jpg')}}" alt="Offers visual">
     </div>
   </section>
 
