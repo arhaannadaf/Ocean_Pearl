@@ -18,8 +18,8 @@
     .topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eee}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem 0;gap:1rem}
     .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
-    .brand .logo{width:32px;height:32px;border-radius:9px;background:var(--brand-red);position:relative}
-    .brand .logo::before,.brand .logo::after{content:"";position:absolute;bottom:6px;width:6px;height:18px;background:#ffc83d;border-radius:3px}
+    .brand .logo{width:32px;height:32px;border-radius:9px;position:relative}
+    .brand .logo::before,.brand .logo::after{position:absolute;bottom:6px;width:6px;height:18px;border-radius:3px}
     .brand .logo::before{left:8px}
     .brand .logo::after{right:8px}
     .menu{display:flex;gap:1.25rem;font-weight:600}
