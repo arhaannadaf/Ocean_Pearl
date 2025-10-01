@@ -1,0 +1,2 @@
+first use vectorize pkl file and vectorize the data
+then use model to predict
