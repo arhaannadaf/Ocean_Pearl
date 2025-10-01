@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
-import { Facebook, Instagram, Twitter, Youtube, ChevronLeft, ChevronRight } from "lucide-react"
-import Image from "next/image"
+import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
+import RollingGallery from "@/components/ui/rolling-gallery"
 
 export default function Footer() {
   const galleryImages = [
@@ -9,6 +9,8 @@ export default function Footer() {
     "/static/assets/Samosa.jpg",
     "/static/assets/Malai_Kofta.jpg",
     "/static/assets/IceCream_Sundae.jpg",
+    "/static/assets/Chicken_Biryani.jpg",
+    "/static/assets/Fish_Curry.jpg",
   ]
 
   return (
@@ -19,9 +21,11 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-6">About us</h3>
             <p className="text-gray-600 leading-relaxed mb-6">
-             At Ocean Pearl Restaurant, we bring the flavors of the ocean right to your plate. Founded with a passion for fresh seafood and authentic culinary experiences,
-              our mission is to delight every guest with high-quality ingredients, expertly crafted dishes, and warm hospitality.
-                                                    
+              At Ocean Pearl Restaurant, we bring the flavors of the ocean right
+              to your plate. Founded with a passion for fresh seafood and
+              authentic culinary experiences, our mission is to delight every
+              guest with high-quality ingredients, expertly crafted dishes, and
+              warm hospitality.
             </p>
             <Button
               variant="outline"
@@ -51,7 +55,7 @@ export default function Footer() {
             <Button
               variant="outline"
               className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white mt-6 bg-transparent"
-              onClick={() => window.location.href = '/contact'}
+              onClick={() => (window.location.href = "/contact")}
             >
               READ MORE
             </Button>
@@ -60,18 +64,19 @@ export default function Footer() {
           {/* Gallery */}
           <div>
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Gallery</h3>
-            <div className="grid grid-cols-4 gap-3 mb-6">
-              {galleryImages.map((image, index) => (
-                <Image
-                  key={index}
-                  src={image || "/placeholder.svg"}
-                  alt={`Gallery image ${index + 1}`}
-                  width={80}
-                  height={80}
-                  className="rounded-lg object-cover"
-                />
-              ))}
+
+            {/* Rolling Gallery (Flat version) */}
+            <div className="mb-6 flex justify-center">
+   <RollingGallery
+  images={galleryImages}
+  speed={50}   // adjust speed
+  height={120}
+  thumbWidth={100}
+  thumbHeight={100}
+  pauseOnHover={true}
+/>
             </div>
+
             <div className="flex items-center justify-between">
               <Button
                 variant="outline"
@@ -79,7 +84,6 @@ export default function Footer() {
               >
                 SEE MORE
               </Button>
-              
             </div>
           </div>
         </div>
@@ -93,7 +97,9 @@ export default function Footer() {
                 <h1 className="text-2xl font-serif">Ocean Pearl</h1>
                 <div className="flex items-center gap-2 text-xs">
                   <div className="w-6 h-px bg-orange-500"></div>
-                  <span className="text-orange-500 font-medium">Taste the Delicacy</span>
+                  <span className="text-orange-500 font-medium">
+                    Taste the Delicacy
+                  </span>
                   <div className="w-6 h-px bg-orange-500"></div>
                 </div>
               </div>
@@ -108,11 +114,15 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-8">
-              <p className="text-gray-600 text-sm">© Ocean Pearl 2024 . All rights reserved.</p>
+              <p className="text-gray-600 text-sm">
+                © Ocean Pearl 2024 . All rights reserved.
+              </p>
               <Button
                 variant="outline"
                 className="border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white text-sm bg-transparent"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                onClick={() =>
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }
               >
                 BACK TO TOP
               </Button>
