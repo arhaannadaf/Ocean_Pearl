@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>Ocean Pearl BI Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+  <style>
+    body { background-color: var(--bs-body-bg); }
+    .kpi-card { border-radius: 15px; padding: 20px; text-align: center; background: linear-gradient(135deg, #4f46e5, #3b82f6); color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+    .kpi-value { font-size: 1.8rem; font-weight: bold; }
+    .chart-card { border-radius: 15px; background: var(--bs-body-bg); padding: 15px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+    .filters { border-radius: 10px; background: var(--bs-body-bg); padding: 15px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
+    footer { text-align: center; margin-top: 30px; color: var(--bs-secondary-color); }
+    .navbar-brand { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">🌊 Ocean Pearl BI</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" href="/">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/forecasting">Forecasting</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Analysis
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="/top-dishes">Top Dishes</a></li>
+              <li><a class="dropdown-item" href="/menu-engineering">Menu Engineering</a></li>
+              <li><a class="dropdown-item" href="/combo-analysis">Combo Analysis</a></li>
+              <li><a class="dropdown-item" href="/peak-hours">Peak Hours</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item active" href="/price-modeling">What-If Price Modeling</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/customers">Customers</a></li>
+          <li class="nav-item"><a class="nav-link" href="/sentiment">Sentiment</a></li>
+        </ul>
+        <button id="themeToggle" class="btn btn-outline-light"><i class="bi bi-moon-stars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid my-4">
+    <h2 class="text-center mb-4">Ocean Pearl BI Dashboard</h2>
+    <form method="POST" class="filters mb-4">
+      <div class="row g-3">
+        <div class="col-md-3"><label class="form-label">Start Date</label><input type="date" name="start_date" value="{{ start_date }}" class="form-control"></div>
+        <div class="col-md-3"><label class="form-label">End Date</label><input type="date" name="end_date" value="{{ end_date }}" class="form-control"></div>
+        <div class="col-md-3"><label class="form-label">Dish Name</label><select name="dishname" class="form-select">{% for dish in dishnames %}<option value="{{ dish }}" {% if dish == request.form.get('dishname', 'All') %}selected{% endif %}>{{ dish }}</option>{% endfor %}</select></div>
+        <div class="col-md-3"><label class="form-label">Category</label><select name="category" class="form-select">{% for cat in categories %}<option value="{{ cat }}" {% if cat == request.form.get('category', 'All') %}selected{% endif %}>{{ cat }}</option>{% endfor %}</select></div>
+      </div>
+      <div class="mt-3 text-end"><button type="submit" class="btn btn-primary">Apply Filters</button></div>
+    </form>
+    <div class="row g-4 mb-4">
+      <div class="col-md col-sm-6"><div class="kpi-card"><div>Total Revenue</div><div class="kpi-value">{{ kpis.total_revenue }}</div></div></div>
+      <div class="col-md col-sm-6"><div class="kpi-card"><div>Total Profit</div><div class="kpi-value">{{ kpis.total_profit }}</div></div></div>
+      <div class="col-md col-sm-6"><div class="kpi-card"><div>Total Orders</div><div class="kpi-value">{{ kpis.total_orders }}</div></div></div>
+      <div class="col-md col-sm-6"><div class="kpi-card"><div>Unique Customers</div><div class="kpi-value">{{ kpis.unique_customers }}</div></div></div>
+      <div class="col-md col-sm-6"><div class="kpi-card"><div>Avg Order Value</div><div class="kpi-value">{{ kpis.avg_order_value }}</div></div></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6"><div class="chart-card"><div id="revenue_trend"></div></div></div>
+      <div class="col-lg-6"><div class="chart-card"><div id="revenue_by_category"></div></div></div>
+      <div class="col-lg-6"><div class="chart-card"><div id="profit_by_day"></div></div></div>
+      <div class="col-lg-6"><div class="chart-card"><div id="top_products"></div></div></div>
+      <div class="col-lg-6"><div class="chart-card"><div id="payment_mode"></div></div></div>
+    </div>
+    <footer class="mt-5"><p>🌊 Ocean Pearl BI Dashboard — Powered by Flask & Plotly</p><p>@copyright -(Rihan and Arhan)</p></footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const htmlTag = document.documentElement;
+    themeToggle.addEventListener("click", () => {
+        const currentTheme = htmlTag.getAttribute("data-bs-theme");
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+        htmlTag.setAttribute("data-bs-theme", newTheme);
+        themeToggle.innerHTML = newTheme === "dark" ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
+    });
+    // This script will now work with the modern library
+    if ('{{ charts.revenue_trend | safe }}') Plotly.newPlot("revenue_trend", JSON.parse('{{ charts.revenue_trend | safe }}'));
+    if ('{{ charts.revenue_by_category | safe }}') Plotly.newPlot("revenue_by_category", JSON.parse('{{ charts.revenue_by_category | safe }}'));
+    if ('{{ charts.profit_by_day | safe }}') Plotly.newPlot("profit_by_day", JSON.parse('{{ charts.profit_by_day | safe }}'));
+    if ('{{ charts.top_products | safe }}') Plotly.newPlot("top_products", JSON.parse('{{ charts.top_products | safe }}'));
+    if ('{{ charts.payment_mode | safe }}') Plotly.newPlot("payment_mode", JSON.parse('{{ charts.payment_mode | safe }}'));
+  </script>
+</body>
+</html>
