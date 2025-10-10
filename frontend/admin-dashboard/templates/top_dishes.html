@@ -70,7 +70,10 @@
         <div class="col-12"><div class="chart-card"><h5 class="mb-3">Dish Performance Details</h5><div class="table-responsive"><table class="table table-striped table-hover"><thead class="table-primary sticky-top"><tr><th>Rank</th><th>Dish Name</th><th>Category</th><th>Quantity Sold</th><th>Total Revenue</th><th>Total Profit</th><th>Profit Margin</th><th>Avg. Price</th></tr></thead><tbody>{% for dish in dishes_performance %}<tr><td>{{ loop.index }}</td><td>{{ dish.DishName }}</td><td>{{ dish.Category }}</td><td>{{ dish.Quantity }}</td><td>₹{{ "%.2f"|format(dish.Revenue) }}</td><td>₹{{ "%.2f"|format(dish.Profit) }}</td><td>{{ "%.1f"|format(dish.ProfitMargin) }}%</td><td>₹{{ "%.2f"|format(dish.AvgPrice) }}</td></tr>{% endfor %}</tbody></table></div></div></div>
     </div>
 
-    <footer class="mt-5"><p>🌊 Ocean Pearl BI Dashboard — Powered by Flask & Plotly</p><p>@copyright -(Rihan and Arhan)</p></footer>
+    <footer class="mt-5">
+        <p>🌊 Ocean Pearl BI Dashboard — Built with Flask & Plotly</p>
+        <p>&copy;2025 OceanPearl</p> 
+    </footer>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
