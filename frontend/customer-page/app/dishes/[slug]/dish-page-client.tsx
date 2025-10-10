@@ -22,13 +22,14 @@ export default function DishPage({ params }: DishPageProps) {
   const [quantity, setQuantity] = useState(1)
   const { addItem } = useCart()
   const dish = dishes.find((d) => d.slug === params.slug)
+  console.log("Current Dish ID:", dish?.id)
 
   if (!dish) {
     notFound()
   }
 const handleAddToCart = () => {
     addItem({
-      id: dish.id.toString(),
+      id: dish.id,
       name: dish.name,
       price: dish.price,
       originalPrice: dish.originalPrice,
@@ -38,8 +39,7 @@ const handleAddToCart = () => {
       quantity: quantity,
     })
 
-    // Optional: Show success message or redirect
-    alert(`Added ${quantity} ${dish.name}(s) to cart!`)
+   
   }
 
   return (

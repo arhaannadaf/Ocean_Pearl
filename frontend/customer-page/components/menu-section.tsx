@@ -4,9 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { useCart } from "@/context/cart-context"
 import { useState } from "react"
-import { dishes } from "@/dishes_data/dishes"
 interface MenuItem {
-  id: number
+  id: string
   slug: string
   name: string
   price: number
@@ -30,7 +29,7 @@ export default function MenuSection({ sectionNumber, title, subtitle, items }: M
 
   const handleAddToCart = (item: MenuItem) => {
     addItem({
-      id: item.id.toString(), // convert number → string
+      id: item.id,
       name: item.name,
       price: item.price,
       quantity: 1,
