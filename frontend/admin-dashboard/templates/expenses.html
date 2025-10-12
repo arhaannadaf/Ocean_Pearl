@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Economic Expense Analysis{% endblock %}
+
+{% block content %}
+<div class="container-fluid my-4">
+    <h2 class="text-center mb-4">Economic Expense Analysis</h2>
+
+    <form method="POST" class="filters mb-4">
+        <div class="row g-3 align-items-end">
+            <div class="col-md-4"><label class="form-label">Start Date</label><input type="date" name="start_date" value="{{ start_date }}" class="form-control"></div>
+            <div class="col-md-4"><label class="form-label">End Date</label><input type="date" name="end_date" value="{{ end_date }}" class="form-control"></div>
+            <div class="col-md-4"><label class="form-label">Category</label><select name="category" class="form-select">{% for cat in categories %}<option value="{{ cat }}" {% if cat == selected_category %}selected{% endif %}>{{ cat }}</option>{% endfor %}</select></div>
+        </div>
+        <div class="mt-3 text-end"><button type="submit" class="btn btn-primary">Apply Filters</button></div>
+    </form>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-3 col-sm-6"><div class="kpi-card expense-card"><div>Total Cost of Goods</div><div class="kpi-value">{{ kpis.total_cogs }}</div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="kpi-card expense-card"><div>Gross Profit</div><div class="kpi-value">{{ kpis.gross_profit }}</div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="kpi-card expense-card"><div>Most Costly Item</div><div class="kpi-value">{{ kpis.most_costly_item }}</div></div></div>
+        <div class="col-md-3 col-sm-6"><div class="kpi-card expense-card"><div>Least Profitable Item</div><div class="kpi-value">{{ kpis.least_profitable_item }}</div></div></div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="chart-card">
+                <div id="cost_composition"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-card">
+        <h4 class="mb-3">Dish Expense Breakdown & Analysis</h4>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Dish Name</th>
+                        <th class="text-end">Total Cost</th>
+                        <th class="text-end">% of Total Costs</th>
+                        <th class="text-end">Cost-to-Revenue Ratio</th>
+                        <th>Pros</th>
+                        <th>Cons & Recommendations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dish in dishes %}
+                    <tr>
+                        <td><strong>{{ dish.DishName }}</strong></td>
+                        <td class="text-end">₹{{ "{:,.0f}".format(dish.TotalCost) }}</td>
+                        <td class="text-end">{{ "%.2f"|format(dish.CostPercentage) }}%</td>
+                        <td class="text-end fw-bold {% if dish.CostRatio > 50 %}text-danger{% else %}text-success{% endif %}">{{ "%.1f"|format(dish.CostRatio) }}%</td>
+                        <td>
+                            {% for pro in dish.Analysis.pros %}
+                                <span class="badge bg-success-subtle text-success-emphasis mb-1">{{ pro }}</span><br>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            {% for con in dish.Analysis.cons %}
+                                <span class="badge bg-danger-subtle text-danger-emphasis mb-1">{{ con }}</span><br>
+                            {% endfor %}
+                            {% if "High Cost Ratio" in dish.Analysis.cons %}
+                                <small class="text-muted d-block mt-1"><i>Consider reducing ingredient costs or increasing the price.</i></small>
+                            {% endif %}
+                            {% if "Unpopular" in dish.Analysis.cons %}
+                                <small class="text-muted d-block mt-1"><i>May be a candidate for removal from the menu.</i></small>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+
+    if ('{{ charts.cost_composition | safe }}') {
+        Plotly.newPlot('cost_composition', JSON.parse('{{ charts.cost_composition | safe }}'));
+    }
+</script>
+{% endblock %}
