@@ -1,80 +1,76 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <title>Forecasting - Ocean Pearl BI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-  <style>
-    body { background-color: var(--bs-body-bg); }
-    .kpi-card { border-radius: 15px; padding: 20px; text-align: center; background: linear-gradient(135deg, #10b981, #14b8a6); color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-    .kpi-value { font-size: 1.8rem; font-weight: bold; }
-    .chart-card { border-radius: 15px; background: var(--bs-body-bg); padding: 15px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
-    .filters { border-radius: 10px; background: var(--bs-body-bg); padding: 15px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
-    footer { text-align: center; margin-top: 30px; color: var(--bs-secondary-color); }
-    .navbar-brand { font-weight: bold; }
-  </style>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top shadow">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">🌊 Ocean Pearl BI</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/forecasting">Forecasting</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Analysis</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="/top-dishes">Top Dishes</a></li>
-                            <li><a class="dropdown-item" href="/menu-engineering">Menu Engineering</a></li>
-                            <li><a class="dropdown-item" href="/combo-analysis">Combo Analysis</a></li>
-                            <li><a class="dropdown-item" href="/peak-hours">Peak Hours</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item active" href="/price-modeling">What-If Price Modeling</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="/customers">Customers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/sentiment">Sentiment</a></li>
-                </ul>
-                <button id="themeToggle" class="btn btn-outline-light"><i class="bi bi-moon-stars"></i></button>
+{% extends "base.html" %}
+
+{% block title %}Sales Forecasting{% endblock %}
+
+{% block content %}
+<div class="container-fluid my-4">
+    <h2 class="text-center mb-4">Revenue Forecasting</h2>
+
+    <div class="filters mb-4 p-3">
+        <form method="POST" class="row g-3 align-items-end">
+            <div class="col-auto">
+                <label for="forecast_period" class="form-label">Forecast Period (days)</label>
+                <select name="forecast_period" id="forecast_period" class="form-select">
+                    <option value="30" {% if selected_period == 30 %}selected{% endif %}>30 Days</option>
+                    <option value="60" {% if selected_period == 60 %}selected{% endif %}>60 Days</option>
+                    <option value="90" {% if selected_period == 90 %}selected{% endif %}>90 Days</option>
+                    <option value="180" {% if selected_period == 180 %}selected{% endif %}>180 Days</option>
+                </select>
             </div>
-        </div>
-    </nav>
-    <div class="container-fluid my-4">
-        <h2 class="text-center mb-4">Sales Forecasting</h2>
-        <form class="filters mb-4" method="POST" action="/forecasting">
-            <div class="row g-3 align-items-end">
-                <div class="col-md-9"><label for="forecast_period" class="form-label">Forecast Period</label><select id="forecast_period" name="forecast_period" class="form-select"><option value="30" {% if selected_period == 30 %}selected{% endif %}>Next 30 Days</option><option value="60" {% if selected_period == 60 %}selected{% endif %}>Next 60 Days</option><option value="90" {% if selected_period == 90 %}selected{% endif %}>Next 90 Days</option></select></div>
-                <div class="col-md-3"><button type="submit" class="btn btn-primary w-100">Generate Forecast</button></div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Generate Forecast</button>
             </div>
         </form>
-        <div class="row g-4 mb-4">
-            <div class="col-md-4 col-sm-12"><div class="kpi-card"><div>Predicted Revenue (Next {{ kpis.period }} Days)</div><div class="kpi-value">{{ kpis.predicted_revenue }}</div></div></div>
-            <div class="col-md-4 col-sm-12"><div class="kpi-card"><div>Expected Growth</div><div class="kpi-value">{{ kpis.growth }}</div></div></div>
-            <div class="col-md-4 col-sm-12"><div class="kpi-card"><div>Confidence Interval</div><div class="kpi-value">{{ kpis.confidence }}</div></div></div>
+    </div>
+
+    {% if kpis and chart_json %}
+    <div class="row g-4 mb-4">
+        <div class="col-md-3 col-sm-6">
+            <div class="kpi-card" style="background: linear-gradient(135deg, #10b981, #16a34a);">
+                <div>Predicted Revenue</div>
+                <div class="kpi-value">{{ kpis.predicted_revenue }}</div>
+            </div>
         </div>
-        <div class="row g-4"><div class="col-12"><div class="chart-card"><div id="forecast_chart" style="height: 500px;"></div></div></div></div>
-         <footer class="mt-5">
-        <p>🌊 Ocean Pearl BI Dashboard — Built with Flask & Plotly</p>
-        <p>&copy;2025 OceanPearl</p> 
-    </footer>
+        <div class="col-md-3 col-sm-6">
+            <div class="kpi-card" style="background: linear-gradient(135deg, #22c55e, #10b981);">
+                <div>Expected Growth</div>
+                <div class="kpi-value">{{ kpis.growth }}</div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="kpi-card" style="background: linear-gradient(135deg, #84cc16, #65a30d);">
+                <div>Confidence Range</div>
+                <div class="kpi-value">{{ kpis.confidence }}</div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="kpi-card" style="background: linear-gradient(135deg, #a3e635, #84cc16);">
+                <div>Forecast Period</div>
+                <div class="kpi-value">{{ kpis.period }} Days</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="chart-card">
+                <div id="forecast-chart"></div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-warning" role="alert">
+        Not enough data to generate a forecast. Please select a shorter period or check your data.
+    </div>
+    {% endif %}
 </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        const themeToggle = document.getElementById("themeToggle");
-        const htmlTag = document.documentElement;
-        themeToggle.addEventListener("click", () => {
-            const currentTheme = htmlTag.getAttribute("data-bs-theme");
-            const newTheme = currentTheme === "light" ? "dark" : "light";
-            htmlTag.setAttribute("data-bs-theme", newTheme);
-            themeToggle.innerHTML = newTheme === "dark" ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
-        });
-        var chartData = JSON.parse('{{ chart_json | safe }}');
-        Plotly.newPlot("forecast_chart", chartData);
-    </script>
-</body>
-</html>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const chartJson = '{{ chart_json | safe }}';
+    if (chartJson && chartJson !== '{}') {
+        Plotly.newPlot('forecast-chart', JSON.parse(chartJson));
+    }
+</script>
+{% endblock %}

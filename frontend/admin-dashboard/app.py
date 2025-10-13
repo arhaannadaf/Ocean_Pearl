@@ -20,7 +20,10 @@ import base64
 
 app = Flask(__name__)
 
-CSV_PATH = "Ocean_Pearl_Order_Data_WithCustomer.csv"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+# 2. Join this script's directory with the relative path to the CSV file.
+CSV_PATH = os.path.join(script_dir, "..","..", "data", "processed", "Ocean_Pearl_Order_Data_WithCustomer.csv")
+
 
 # --- 1. Load Models and Preprocessing Objects ---
 try:
@@ -208,17 +211,53 @@ def forecasting():
 @app.route('/top-dishes', methods=["GET", "POST"])
 def top_dishes():
     df = load_data()
-    sort_by, limit, selected_category = 'Revenue', 10, 'All'
+    sort_by = 'Revenue'
+    limit = 10
+    selected_category = 'All'
+
     if request.method == "POST":
-        sort_by, limit, selected_category = request.form.get('sort_by'), request.form.get('limit'), request.form.get('category')
-    filtered_df = df[df['Category'] == selected_category] if selected_category != 'All' else df
-    dish_performance = filtered_df.groupby(['DishName', 'Category']).agg(Quantity=('Quantity', 'sum'), Revenue=('Revenue', 'sum'), Profit=('Profit', 'sum'), AvgPrice=('Price', 'mean')).reset_index()
+        sort_by = request.form.get('sort_by', 'Revenue')
+        limit_str = request.form.get('limit', '10')
+        limit = int(limit_str) if limit_str.isdigit() else 10
+        selected_category = request.form.get('category', 'All')
+
+    # Filter by category if one is selected
+    filtered_df = df[df['Category'] == selected_category] if selected_category != 'All' else df.copy()
+
+    # Aggregate performance data
+    dish_performance = filtered_df.groupby(['DishName', 'Category']).agg(
+        Quantity=('Quantity', 'sum'),
+        Revenue=('Revenue', 'sum'),
+        Profit=('Profit', 'sum'),
+        AvgPrice=('Price', 'mean')
+    ).reset_index()
+
     dish_performance['ProfitMargin'] = (dish_performance['Profit'] / dish_performance['Revenue'] * 100).fillna(0)
+
+    # Determine the column to sort by
     sort_column = {'Revenue': 'Revenue', 'Profit': 'Profit', 'Quantity': 'Quantity'}.get(sort_by, 'Revenue')
-    dish_performance = dish_performance.sort_values(by=sort_column, ascending=False)
-    if limit != 'All': dish_performance = dish_performance.head(int(limit))
-    top_kpis = {'top_revenue_dish': df.groupby('DishName')['Revenue'].sum().idxmax(), 'top_profit_dish': df.groupby('DishName')['Profit'].sum().idxmax(), 'top_quantity_dish': df.groupby('DishName')['Quantity'].sum().idxmax()}
-    return render_template('top_dishes.html', dishes_performance=dish_performance.to_dict('records'), categories=['All'] + sorted(df['Category'].unique().tolist()), selected_category=selected_category, sort_by=sort_by, limit=int(limit) if limit != 'All' else 'All', top_kpis=top_kpis)
+
+    # Get top and worst performing dishes
+    top_dishes_df = dish_performance.sort_values(by=sort_column, ascending=False).head(limit)
+    worst_dishes_df = dish_performance.sort_values(by=sort_column, ascending=True).head(limit)
+
+    # KPIs for overall best dishes (not affected by filters)
+    top_kpis = {
+        'top_revenue_dish': df.loc[df['Revenue'].idxmax()]['DishName'] if not df.empty else 'N/A',
+        'top_profit_dish': df.loc[df['Profit'].idxmax()]['DishName'] if not df.empty else 'N/A',
+        'top_quantity_dish': df.loc[df['Quantity'].idxmax()]['DishName'] if not df.empty else 'N/A'
+    }
+
+    return render_template(
+        'top_dishes.html',
+        top_dishes=top_dishes_df.to_dict('records'),
+        worst_dishes=worst_dishes_df.to_dict('records'),
+        categories=['All'] + sorted(df['Category'].unique().tolist()),
+        selected_category=selected_category,
+        sort_by=sort_by,
+        limit=limit,
+        top_kpis=top_kpis
+    )
 
 @app.route('/customers')
 def customers():
@@ -300,22 +339,60 @@ def menu_engineering():
     chart_json = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return render_template('menu_engineering.html', chart_json=chart_json)
 
-@app.route('/combo-analysis')
+@app.route('/combo-analysis', methods=["GET", "POST"])
 def combo_analysis():
+    # Set default values for the filters
+    min_support = 0.01
+    min_confidence = 0.2
+    num_rules = 15
+
+    if request.method == "POST":
+        min_support = float(request.form.get('min_support', 0.01))
+        min_confidence = float(request.form.get('min_confidence', 0.2))
+        num_rules = int(request.form.get('num_rules', 15))
+
     df = load_data()
+    
+    # Ensure there's enough data for the analysis to be meaningful
+    if df['OrderID'].nunique() < 50:
+        return render_template('combo_analysis.html', rules=None, error_message="Not enough unique orders to generate meaningful insights.")
+
     transactions = df.groupby('OrderID')['DishName'].apply(list).values.tolist()
     te = TransactionEncoder()
     te_ary = te.fit(transactions).transform(transactions)
     df_onehot = pd.DataFrame(te_ary, columns=te.columns_)
-    frequent_itemsets = apriori(df_onehot, min_support=0.01, use_colnames=True)
+
     rules = None
-    if not frequent_itemsets.empty:
-        rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.2)
-        if not rules.empty:
-            rules['antecedents'] = rules['antecedents'].apply(lambda x: list(x))
-            rules['consequents'] = rules['consequents'].apply(lambda x: list(x))
-            rules = rules.sort_values(by='confidence', ascending=False).head(15)
-    return render_template('combo_analysis.html', rules=rules)
+    try:
+        # Generate frequent itemsets based on user's min_support
+        frequent_itemsets = apriori(df_onehot, min_support=min_support, use_colnames=True)
+        
+        if not frequent_itemsets.empty:
+            # Generate rules based on user's min_confidence
+            rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=min_confidence)
+            
+            if not rules.empty:
+                # Format the rules for better display
+                rules['antecedents'] = rules['antecedents'].apply(lambda x: ', '.join(list(x)))
+                rules['consequents'] = rules['consequents'].apply(lambda x: ', '.join(list(x)))
+                
+                # Sort by Lift and Confidence to show the most interesting rules first
+                rules = rules.sort_values(by=['lift', 'confidence'], ascending=False).head(num_rules)
+                
+                # Format numbers for readability in the table
+                rules['support'] = rules['support'].apply(lambda x: f"{x:.2%}")
+                rules['confidence'] = rules['confidence'].apply(lambda x: f"{x:.2%}")
+                rules['lift'] = rules['lift'].apply(lambda x: f"{x:.2f}x")
+
+    except Exception as e:
+        print(f"Error in combo analysis: {e}")
+        return render_template('combo_analysis.html', rules=None, error_message=f"An error occurred: {e}")
+
+    return render_template('combo_analysis.html',
+                           rules=rules.to_dict('records') if rules is not None and not rules.empty else None,
+                           min_support=min_support,
+                           min_confidence=min_confidence,
+                           num_rules=num_rules)
 
 @app.route('/peak-hours')
 def peak_hours():
@@ -427,66 +504,212 @@ def sentiment():
     wordcloud_image = base64.b64encode(img.getvalue()).decode()
     recent_feedback = feedback_df.tail(10).to_dict('records')
     return render_template('sentiment.html', kpis=kpis, charts=charts, recent_feedback=recent_feedback, wordcloud_image=wordcloud_image)
+
 @app.route('/price-modeling', methods=["GET", "POST"])
 def price_modeling():
     df = load_data()
     dishes = sorted(df['DishName'].unique())
     
-    results = None
     selected_dish = dishes[0]
-    change_type = 'percent'
-    change_value = 10.0
+    elasticity_factor = -1.2  # A common value for restaurant items
+    price_change_percent = 0.0
 
     if request.method == 'POST':
         selected_dish = request.form['dish_name']
-        change_type = request.form['change_type']
-        change_value = float(request.form['change_value'])
+        elasticity_factor = float(request.form['elasticity_factor'])
+        price_change_percent = float(request.form.get('price_change_percent', 0))
 
-        # Filter for the selected dish
-        dish_df = df[df['DishName'] == selected_dish]
+    # --- Analysis for the selected dish ---
+    dish_df = df[df['DishName'] == selected_dish]
+    
+    # Calculate current metrics
+    current_avg_price = dish_df['Price'].mean()
+    avg_cost_price = dish_df['CostPrice'].mean()
+    total_quantity = dish_df['Quantity'].sum()
+    current_total_revenue = dish_df['Revenue'].sum()
+    current_total_profit = dish_df['Profit'].sum()
+
+    # --- Generate Scenarios for the Chart ---
+    scenarios = []
+    # Generate a range of scenarios from -25% to +50% price change
+    for change in range(-25, 51, 5):
+        price_change_ratio = change / 100.0
+        new_price = current_avg_price * (1 + price_change_ratio)
         
-        # Calculate current metrics
-        current_avg_price = dish_df['Price'].mean()
-        avg_cost_price = dish_df['CostPrice'].mean()
-        total_quantity = dish_df['Quantity'].sum()
-        current_total_revenue = dish_df['Revenue'].sum()
-        current_total_profit = dish_df['Profit'].sum()
+        # Simulate the change in quantity based on elasticity
+        # A positive elasticity factor means demand increases with price (luxury goods, not typical for restaurants)
+        # A negative factor (e.g., -1.2) means a 10% price increase causes a 12% drop in sales
+        quantity_change_ratio = price_change_ratio * elasticity_factor
+        projected_quantity = total_quantity * (1 + quantity_change_ratio)
+        if projected_quantity < 0:
+            projected_quantity = 0
+        
+        projected_revenue = new_price * projected_quantity
+        projected_profit = (new_price - avg_cost_price) * projected_quantity
+        
+        scenarios.append({
+            'price_change': change,
+            'new_price': new_price,
+            'projected_revenue': projected_revenue,
+            'projected_profit': projected_profit
+        })
 
-        # Calculate new price based on user input
-        if change_type == 'percent':
-            new_price = current_avg_price * (1 + change_value / 100)
-        else: # 'fixed'
-            new_price = current_avg_price + change_value
+    scenario_df = pd.DataFrame(scenarios)
 
-        # Calculate projected metrics
-        projected_revenue = new_price * total_quantity
-        projected_profit = (new_price - avg_cost_price) * total_quantity
+    # --- Calculate metrics for the user-selected price change ---
+    selected_price_change_ratio = price_change_percent / 100.0
+    projected_price = current_avg_price * (1 + selected_price_change_ratio)
+    selected_quantity_change = selected_price_change_ratio * elasticity_factor
+    projected_quantity = total_quantity * (1 + selected_quantity_change)
+    if projected_quantity < 0:
+        projected_quantity = 0
 
-        results = {
-            "current": {
-                "avg_price": current_avg_price,
-                "quantity": total_quantity,
-                "revenue": current_total_revenue,
-                "profit": current_total_profit,
-            },
-            "projected": {
-                "new_price": new_price,
-                "revenue": projected_revenue,
-                "profit": projected_profit,
-            },
-            "impact": {
-                "revenue": projected_revenue - current_total_revenue,
-                "profit": projected_profit - current_total_profit,
-            }
+    projected_revenue = projected_price * projected_quantity
+    projected_profit = (projected_price - avg_cost_price) * projected_quantity
+
+    results = {
+        "current": {
+            "avg_price": current_avg_price,
+            "quantity": total_quantity,
+            "revenue": current_total_revenue,
+            "profit": current_total_profit,
+        },
+        "projected": {
+            "new_price": projected_price,
+            "quantity": projected_quantity,
+            "revenue": projected_revenue,
+            "profit": projected_profit,
+        },
+        "impact": {
+            "revenue": projected_revenue - current_total_revenue,
+            "profit": projected_profit - current_total_profit,
         }
+    }
+
+    # --- Create Interactive Chart ---
+    charts = {}
+    fig = go.Figure()
+    # Revenue Line
+    fig.add_trace(go.Scatter(x=scenario_df['price_change'], y=scenario_df['projected_revenue'], mode='lines+markers', name='Projected Revenue', line=dict(color='#4F46E5')))
+    # Profit Line
+    fig.add_trace(go.Scatter(x=scenario_df['price_change'], y=scenario_df['projected_profit'], mode='lines+markers', name='Projected Profit', line=dict(color='#10b981')))
+    
+    # Highlight the point of maximum profit
+    max_profit_point = scenario_df.loc[scenario_df['projected_profit'].idxmax()]
+    fig.add_annotation(
+        x=max_profit_point['price_change'], y=max_profit_point['projected_profit'],
+        text="Optimal Profit", showarrow=True, arrowhead=1, ax=0, ay=-40
+    )
+
+    # Highlight the selected point
+    fig.add_vline(x=price_change_percent, line_width=2, line_dash="dash", line_color="orange", annotation_text="Your Selection")
+
+    fig.update_layout(
+        title=f"Price Change vs. Projected Revenue & Profit for {selected_dish}",
+        xaxis_title="Price Change (%)",
+        yaxis_title="Amount (₹)",
+        template="plotly_white",
+        paper_bgcolor="#f8fafc",
+        plot_bgcolor="#f8fafc"
+    )
+    charts['price_elasticity_chart'] = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
     return render_template('price_modeling.html',
                            dishes=dishes,
                            selected_dish=selected_dish,
-                           change_type=change_type,
-                           change_value=change_value,
-                           results=results)
+                           elasticity_factor=elasticity_factor,
+                           price_change_percent=price_change_percent,
+                           results=results,
+                           charts=charts)
 
+
+@app.route('/expenses', methods=["GET", "POST"])
+def expenses():
+    df = load_data()
+    start_date = df["OrderDate"].min()
+    end_date = df["OrderDate"].max()
+
+    filtered_df = df.copy()
+    if request.method == "POST":
+        start_date = pd.to_datetime(request.form.get("start_date", start_date))
+        end_date = pd.to_datetime(request.form.get("end_date", end_date))
+        filtered_df = df[(df["OrderDate"] >= start_date) & (df["OrderDate"] <= end_date)]
+        if request.form.get("category", "All") != "All":
+            filtered_df = filtered_df[filtered_df["Category"] == request.form.get("category")]
+
+    # --- Economic Analysis ---
+    dish_analysis = filtered_df.groupby('DishName').agg(
+        TotalQuantity=('Quantity', 'sum'),
+        TotalRevenue=('Revenue', 'sum'),
+        TotalCost=('CostPrice', 'sum')
+    ).reset_index()
+
+    # Avoid division by zero
+    dish_analysis = dish_analysis[dish_analysis['TotalRevenue'] > 0]
+
+    dish_analysis['TotalProfit'] = dish_analysis['TotalRevenue'] - dish_analysis['TotalCost']
+    dish_analysis['ProfitMargin'] = (dish_analysis['TotalProfit'] / dish_analysis['TotalRevenue']) * 100
+    dish_analysis['CostRatio'] = (dish_analysis['TotalCost'] / dish_analysis['TotalRevenue']) * 100
+    
+    total_costs = dish_analysis['TotalCost'].sum()
+    dish_analysis['CostPercentage'] = (dish_analysis['TotalCost'] / total_costs) * 100 if total_costs > 0 else 0
+
+    # --- Pros and Cons Logic ---
+    def get_pros_cons(row):
+        pros = []
+        cons = []
+        if row['ProfitMargin'] > dish_analysis['ProfitMargin'].mean():
+            pros.append("High Profit Margin")
+        if row['TotalQuantity'] > dish_analysis['TotalQuantity'].mean():
+            pros.append("Popular")
+        if row['CostRatio'] < dish_analysis['CostRatio'].mean():
+            pros.append("Efficient Cost")
+        
+        if row['ProfitMargin'] < dish_analysis['ProfitMargin'].quantile(0.25):
+            cons.append("Low Profit Margin")
+        if row['TotalQuantity'] < dish_analysis['TotalQuantity'].quantile(0.25):
+            cons.append("Unpopular")
+        if row['CostRatio'] > dish_analysis['CostRatio'].quantile(0.75):
+            cons.append("High Cost Ratio")
+            
+        return {'pros': pros, 'cons': cons}
+
+    dish_analysis['Analysis'] = dish_analysis.apply(get_pros_cons, axis=1)
+    dish_analysis = dish_analysis.sort_values(by='CostRatio', ascending=False)
+
+
+    # --- KPIs ---
+    total_cogs = dish_analysis['TotalCost'].sum()
+    total_revenue_kpi = dish_analysis['TotalRevenue'].sum()
+    gross_profit = total_revenue_kpi - total_cogs
+    
+    expense_kpis = {
+        "total_cogs": f"₹{total_cogs:,.0f}",
+        "gross_profit": f"₹{gross_profit:,.0f}",
+        "most_costly_item": dish_analysis.iloc[0]['DishName'] if not dish_analysis.empty else "N/A",
+        "least_profitable_item": dish_analysis.sort_values(by='ProfitMargin').iloc[0]['DishName'] if not dish_analysis.empty else "N/A"
+    }
+
+    # --- Chart: Cost Composition Treemap ---
+    charts = {}
+    fig_treemap = px.treemap(dish_analysis, 
+                             path=[px.Constant("All Dishes"), 'DishName'], 
+                             values='TotalCost',
+                             color='CostRatio',
+                             color_continuous_scale='Reds',
+                             title='Cost Composition by Dish (Size = Total Cost, Color = Cost Ratio %)')
+    fig_treemap.update_layout(paper_bgcolor="#f8fafc", plot_bgcolor="#f8fafc")
+    charts['cost_composition'] = json.dumps(fig_treemap, cls=plotly.utils.PlotlyJSONEncoder)
+
+
+    return render_template('expenses.html',
+                           kpis=expense_kpis,
+                           charts=charts,
+                           dishes=dish_analysis.to_dict('records'),
+                           categories=["All"] + sorted(df['Category'].unique().tolist()),
+                           start_date=start_date.strftime("%Y-%m-%d"),
+                           end_date=end_date.strftime("%Y-%m-%d"),
+                           selected_category=request.form.get('category', 'All'))
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)

@@ -1,137 +1,96 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <title>Sentiment Analysis - Ocean Pearl BI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-  <style>
-    body { background-color: var(--bs-body-bg); }
-    .kpi-card { border-radius: 15px; padding: 20px; text-align: center; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-    .positive { background: linear-gradient(135deg, #22c55e, #16a34a); }
-    .neutral { background: linear-gradient(135deg, #64748b, #475569); }
-    .negative { background: linear-gradient(135deg, #ef4444, #dc2626); }
-    .kpi-value { font-size: 1.8rem; font-weight: bold; }
-    .chart-card { border-radius: 15px; background: var(--bs-body-bg); padding: 15px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); height: 100%; }
-    footer { text-align: center; margin-top: 30px; color: var(--bs-secondary-color); }
-    .navbar-brand { font-weight: bold; }
-    .table-responsive { max-height: 400px; }
-    .badge.bg-success { background-color: #16a34a !important; }
-    .badge.bg-secondary { background-color: #475569 !important; }
-    .badge.bg-danger { background-color: #dc2626 !important; }
-  </style>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top shadow">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">🌊 Ocean Pearl BI</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="/">Dashboard</a></li>
-                <li class="nav-item"><a class="nav-link" href="/forecasting">Forecasting</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Analysis</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/top-dishes">Top Dishes</a></li>
-                        <li><a class="dropdown-item" href="/menu-engineering">Menu Engineering</a></li>
-                        <li><a class="dropdown-item" href="/combo-analysis">Combo Analysis</a></li>
-                        <li><a class="dropdown-item" href="/peak-hours">Peak Hours</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/price-modeling">What-If Price Modeling</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="/customers">Customers</a></li>
-                <li class="nav-item"><a class="nav-link active" href="/sentiment">Sentiment</a></li>
-            </ul>
-            <button id="themeToggle" class="btn btn-outline-light"><i class="bi bi-moon-stars"></i></button>
-        </div>
-    </div>
-  </nav>
+{% extends "base.html" %}
 
-  <div class="container-fluid my-4">
-    <h2 class="text-center mb-4">Customer Feedback Sentiment</h2>
-    
-    <div class="row g-4 mb-4">
-        <div class="col-md-4"><div class="kpi-card positive"><div>Positive Feedback</div><div class="kpi-value">{{ kpis.positive_pct }}%</div></div></div>
-        <div class="col-md-4"><div class="kpi-card neutral"><div>Neutral Feedback</div><div class="kpi-value">{{ kpis.neutral_pct }}%</div></div></div>
-        <div class="col-md-4"><div class="kpi-card negative"><div>Negative Feedback</div><div class="kpi-value">{{ kpis.negative_pct }}%</div></div></div>
-    </div>
+{% block title %}Sentiment Analysis{% endblock %}
+
+{% block content %}
+<div class="container-fluid my-4">
+    <h2 class="text-center mb-4">Feedback Sentiment Analysis</h2>
 
     <div class="row g-4 mb-4">
-        <div class="col-lg-5">
-            <div class="chart-card"><div id="sentiment_pie_chart"></div></div>
-        </div>
-        <div class="col-lg-7">
-            <div class="chart-card">
-                <h5 class="mb-3">Common Feedback Themes</h5>
-                <div class="text-center">
-                    <img src="data:image/png;base64,{{ wordcloud_image }}" class="img-fluid" alt="Feedback Word Cloud">
-                </div>
+        <div class="col-md-4">
+            <div class="kpi-card" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                <div>Positive Feedback</div>
+                <div class="kpi-value">{{ kpis.positive_pct }}%</div>
             </div>
         </div>
-    </div>
-
-    <div class="row g-4 mb-4">
-        <div class="col-lg-6">
-            <div class="chart-card"><div id="positive_dishes_chart"></div></div>
+        <div class="col-md-4">
+            <div class="kpi-card" style="background: linear-gradient(135deg, #64748b, #475569);">
+                <div>Neutral Feedback</div>
+                <div class="kpi-value">{{ kpis.neutral_pct }}%</div>
+            </div>
         </div>
-        <div class="col-lg-6">
-            <div class="chart-card"><div id="negative_dishes_chart"></div></div>
+        <div class="col-md-4">
+            <div class="kpi-card" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                <div>Negative Feedback</div>
+                <div class="kpi-value">{{ kpis.negative_pct }}%</div>
+            </div>
         </div>
     </div>
 
     <div class="row g-4">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header"><h5>Recent Feedback with Predictions</h5></div>
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover mb-0">
-                        <thead><tr><th>Feedback Comment</th><th>Predicted Sentiment</th></tr></thead>
-                        <tbody>
-                            {% for item in recent_feedback %}
-                            <tr>
-                                <td><em>"{{ item.Feedback }}"</em></td>
-                                <td>
-                                    {% if item.Sentiment == 'Positive' %}<span class="badge bg-success">Positive</span>
-                                    {% elif item.Sentiment == 'Negative' %}<span class="badge bg-danger">Negative</span>
-                                    {% else %}<span class="badge bg-secondary">Neutral</span>{% endif %}
-                                </td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
+        <div class="col-lg-4">
+            <div class="chart-card">
+                <div id="sentiment-pie-chart"></div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="chart-card text-center">
+                <h5>Common Feedback Themes</h5>
+                <img src="data:image/png;base64,{{ wordcloud_image }}" alt="Feedback Word Cloud" class="img-fluid rounded">
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="chart-card">
+                <div id="positive-dishes-chart"></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="chart-card">
+                <div id="negative-dishes-chart"></div>
             </div>
         </div>
     </div>
-  </div>
 
-  <footer class="mt-5">
-        <p>🌊 Ocean Pearl BI Dashboard — Built with Flask & Plotly</p>
-        <p>&copy;2025 OceanPearl</p> 
-    </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const themeToggle = document.getElementById("themeToggle");
-    const htmlTag = document.documentElement;
-    themeToggle.addEventListener("click", () => {
-        const currentTheme = htmlTag.getAttribute("data-bs-theme");
-        const newTheme = currentTheme === "light" ? "dark" : "light";
-        htmlTag.setAttribute("data-bs-theme", newTheme);
-        themeToggle.innerHTML = newTheme === "dark" ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
-    });
-    
-    var pieChart = JSON.parse('{{ charts.pie_chart | safe }}');
-    Plotly.newPlot('sentiment_pie_chart', pieChart.data, pieChart.layout);
+    <div class="mt-5">
+        <h4 class="text-center mb-3">Recent Feedback</h4>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-light">
+                    <tr>
+                        <th>Dish</th>
+                        <th>Feedback</th>
+                        <th>Sentiment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for feedback in recent_feedback %}
+                    <tr>
+                        <td>{{ feedback.DishName }}</td>
+                        <td><em>"{{ feedback.Feedback }}"</em></td>
+                        <td>
+                            <span class="badge {% if feedback.Sentiment == 'Positive' %}bg-success{% elif feedback.Sentiment == 'Negative' %}bg-danger{% else %}bg-secondary{% endif %}">
+                                {{ feedback.Sentiment }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-    var posChart = JSON.parse('{{ charts.positive_dishes_chart | safe }}');
-    Plotly.newPlot('positive_dishes_chart', posChart.data, posChart.layout);
-
-    var negChart = JSON.parse('{{ charts.negative_dishes_chart | safe }}');
-    Plotly.newPlot('negative_dishes_chart', negChart.data, negChart.layout);
-  </script>
-</body>
-</html>
+{% block scripts %}
+<script>
+    if ('{{ charts.pie_chart | safe }}') {
+        Plotly.newPlot('sentiment-pie-chart', JSON.parse('{{ charts.pie_chart | safe }}'));
+    }
+    if ('{{ charts.positive_dishes_chart | safe }}') {
+        Plotly.newPlot('positive-dishes-chart', JSON.parse('{{ charts.positive_dishes_chart | safe }}'));
+    }
+    if ('{{ charts.negative_dishes_chart | safe }}') {
+        Plotly.newPlot('negative-dishes-chart', JSON.parse('{{ charts.negative_dishes_chart | safe }}'));
+    }
+</script>
+{% endblock %}
