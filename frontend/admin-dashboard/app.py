@@ -20,7 +20,7 @@ import base64
 
 app = Flask(__name__)
 
-CSV_PATH = "Ocean_Pearl_Order_Data_WithCustomer.csv"
+CSV_PATH = "ocean-pearl/data/processed/Ocean_Pearl_Order_Data_WithCustomer.csv"
 
 # --- 1. Load Models and Preprocessing Objects ---
 try:
