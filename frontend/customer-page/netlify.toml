@@ -1,7 +1,0 @@
-[build]
-  base = "frontend/customer-page"
-  publish = "frontend/customer-page/out"
-  command = "pnpm install --auto-approve && npm run build"
-
-[build.environment]
-  NODE_VERSION = "20"
