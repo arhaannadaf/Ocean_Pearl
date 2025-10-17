@@ -6,10 +6,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  output: 'export',
+  output: 'export', // enables static export
   images: {
     unoptimized: true,
   },
 };
-
-export default nextConfig;
+module.exports = nextConfig; // <-- use module.exports instead of export default
