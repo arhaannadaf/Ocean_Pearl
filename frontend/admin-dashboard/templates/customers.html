@@ -1,90 +1,62 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <title>Customer Analytics - Ocean Pearl BI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-  <style>
-    body { background-color: var(--bs-body-bg); }
-    .kpi-card { border-radius: 15px; padding: 20px; text-align: center; color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-    .kpi-card.high-value { background: linear-gradient(135deg, #16a34a, #22c55e); }
-    .kpi-card.frequent { background: linear-gradient(135deg, #ea580c, #f97316); }
-    .kpi-card.new-customer { background: linear-gradient(135deg, #0284c7, #0ea5e9); }
-    .kpi-value { font-size: 1.8rem; font-weight: bold; }
-    .chart-card { border-radius: 15px; background: var(--bs-body-bg); padding: 15px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
-    footer { text-align: center; margin-top: 30px; color: var(--bs-secondary-color); }
-    .navbar-brand { font-weight: bold; }
-  </style>
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg bg-primary navbar-dark sticky-top shadow">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">🌊 Ocean Pearl BI</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item"><a class="nav-link" href="/">Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link" href="/forecasting">Forecasting</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Analysis
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/top-dishes">Top Dishes</a></li>
-                <li><a class="dropdown-item" href="/menu-engineering">Menu Engineering</a></li>
-                <li><a class="dropdown-item" href="/combo-analysis">Combo Analysis</a></li>
-                <li><a class="dropdown-item" href="/peak-hours">Peak Hours</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item active" href="/price-modeling">What-If Price Modeling</a></li>
-              </ul>
-            </li>
-              
-            <li class="nav-item"><a class="nav-link active" href="/customers">Customers</a></li>
-            <li class="nav-item"><a class="nav-link" href="/sentiment">Sentiment</a></li>
-        </ul>
-        <button id="themeToggle" class="btn btn-outline-light"><i class="bi bi-moon-stars"></i></button>
+{% extends "base.html" %}
+
+{% block title %}Customer Segmentation{% endblock %}
+
+{% block content %}
+<div class="container-fluid my-4">
+  <h2 class="text-center mb-4">Customer Segmentation</h2>
+
+  <div class="row g-4 mb-4">
+    <div class="col-lg-3 col-md-6">
+      <div class="kpi-card" style="background: linear-gradient(135deg, #6366f1, #3b82f6);">
+        <div>High-Value Customers</div>
+        <div class="kpi-value">{{ segments.high_value_customers.count }}</div>
+        <small>Avg Spend: ₹{{ "{:,.0f}".format(segments.high_value_customers.avg_spend) }}</small>
       </div>
     </div>
-  </nav>
-
-  <div class="container-fluid my-4">
-    <h2 class="text-center mb-4">Customer Segmentation & Analytics</h2>
-    <div class="row g-4 mb-4">
-      <div class="col-md-4"><div class="kpi-card high-value"><div>High-Value Customers</div><div class="kpi-value">{{ segments.high_value_customers.count }}</div><p>Avg. Spend: ₹{{ "%.0f"|format(segments.high_value_customers.avg_spend) }}</p></div></div>
-      <div class="col-md-4"><div class="kpi-card frequent"><div>Frequent Visitors</div><div class="kpi-value">{{ segments.frequent_customers.count }}</div><p>Avg. Visits: {{ "%.1f"|format(segments.frequent_customers.avg_visits) }}</p></div></div>
-      <div class="col-md-4"><div class="kpi-card new-customer"><div>New vs Returning</div><div class="kpi-value">{{ segments.new_customers }} / {{ segments.returning_customers }}</div><p>New / Returning This Month</p></div></div>
+    <div class="col-lg-3 col-md-6">
+      <div class="kpi-card" style="background: linear-gradient(135deg, #22c55e, #10b981);">
+        <div>Frequent Customers</div>
+        <div class="kpi-value">{{ segments.frequent_customers.count }}</div>
+        <small>Avg Visits: {{ "{:.1f}".format(segments.frequent_customers.avg_visits) }}</small>
+      </div>
     </div>
-    <div class="row g-4">
-      <div class="col-lg-6"><div class="chart-card"><div id="new_vs_returning_chart"></div></div></div>
-      <div class="col-lg-6"><div class="chart-card"><div id="customer_spend_dist"></div></div></div>
+    <div class="col-lg-3 col-md-6">
+      <div class="kpi-card" style="background: linear-gradient(135deg, #f97316, #ea580c);">
+        <div>New Customers (Last 30 Days)</div>
+        <div class="kpi-value">{{ segments.new_customers }}</div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+      <div class="kpi-card" style="background: linear-gradient(135deg, #0ea5e9, #0284c7);">
+        <div>Returning Customers (Last 30 Days)</div>
+        <div class="kpi-value">{{ segments.returning_customers }}</div>
+      </div>
     </div>
   </div>
 
- <footer class="mt-5">
-        <p>🌊 Ocean Pearl BI Dashboard — Built with Flask & Plotly</p>
-        <p>&copy;2025 OceanPearl</p> 
-    </footer>
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="chart-card">
+        <div id="new_vs_returning_chart"></div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="chart-card">
+        <div id="customer_spend_dist"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const themeToggle = document.getElementById("themeToggle");
-    const htmlTag = document.documentElement;
-    themeToggle.addEventListener("click", () => {
-        const currentTheme = htmlTag.getAttribute("data-bs-theme");
-        const newTheme = currentTheme === "light" ? "dark" : "light";
-        htmlTag.setAttribute("data-bs-theme", newTheme);
-        themeToggle.innerHTML = newTheme === "dark" ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
-    });
-
-    // --- FIX IS HERE ---
-    var newVsReturningChart = JSON.parse('{{ charts.new_vs_returning_chart | safe }}');
-    Plotly.newPlot("new_vs_returning_chart", newVsReturningChart.data, newVsReturningChart.layout);
-
-    var customerSpendDist = JSON.parse('{{ charts.customer_spend_dist | safe }}');
-    Plotly.newPlot("customer_spend_dist", customerSpendDist.data, customerSpendDist.layout);
-  </script>
-</body>
-</html>
+{% block scripts %}
+<script>
+  if ('{{ charts.new_vs_returning_chart | safe }}') {
+    Plotly.newPlot('new_vs_returning_chart', JSON.parse('{{ charts.new_vs_returning_chart | safe }}'));
+  }
+  if ('{{ charts.customer_spend_dist | safe }}') {
+    Plotly.newPlot('customer_spend_dist', JSON.parse('{{ charts.customer_spend_dist | safe }}'));
+  }
+</script>
+{% endblock %}
