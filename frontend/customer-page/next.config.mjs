@@ -11,4 +11,5 @@ const nextConfig = {
     unoptimized: true,
   },
 };
-module.exports = nextConfig; // <-- use module.exports instead of export default
+
+export default nextConfig; // ✅ ES module export
