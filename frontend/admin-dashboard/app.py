@@ -20,14 +20,12 @@ import base64
 
 app = Flask(__name__)
 
-<<<<<<< HEAD
 CSV_PATH = "ocean-pearl/data/processed/Ocean_Pearl_Order_Data_WithCustomer.csv"
-=======
 script_dir = os.path.dirname(os.path.abspath(__file__))
 # 2. Join this script's directory with the relative path to the CSV file.
 CSV_PATH = os.path.join(script_dir, "..","..", "data", "processed", "Ocean_Pearl_Order_Data_WithCustomer.csv")
 
->>>>>>> 7e4e507aae3cb1e5f27941561484e5f11ea31518
+
 
 # --- 1. Load Models and Preprocessing Objects ---
 try:
