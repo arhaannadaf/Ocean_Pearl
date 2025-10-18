@@ -28,9 +28,9 @@ CSV_PATH = os.path.join(script_dir, "data", "processed", "Ocean_Pearl_Order_Data
 # --- 1. Load Models and Preprocessing Objects ---
 try:
     # Define paths to the saved model and vectorizer
-    model_folder = 'Models'
-    model_path = os.path.join(model_folder, 'svm_model.pkl')
-    vectorizer_path = os.path.join(model_folder, 'tfidf_vectorizer.pkl')
+    
+    model_path = os.path.join(script_dir,'Models', 'svm_model.pkl')
+    vectorizer_path = os.path.join(script_dir,'Models', 'tfidf_vectorizer.pkl')
 
     # Load the model and vectorizer using joblib
     svm_model = joblib.load(model_path)
