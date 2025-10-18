@@ -79,7 +79,7 @@
     <div class="row mt-4">
         <div class="col-12">
             <div class="chart-card">
-                <div id="price-elasticity-chart"></div>
+                <div class="chart-responsive chart-aspect-16-9" id="price-elasticity-chart"></div>
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@
 
     // Render the chart
     if ('{{ charts.price_elasticity_chart | safe }}') {
-        Plotly.newPlot('price-elasticity-chart', JSON.parse('{{ charts.price_elasticity_chart | safe }}'));
+        try { safePlotlyNewPlot('price-elasticity-chart', JSON.parse('{{ charts.price_elasticity_chart | safe }}')); } catch (e) { console.error(e); }
     }
 </script>
 {% endblock %}

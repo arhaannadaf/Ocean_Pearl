@@ -12,7 +12,7 @@
       <div class="col-lg-10">
           <div class="chart-card">
               {% if chart_json and chart_json != '{}' %}
-                  <div id="peak-hours-heatmap"></div>
+                  <div class="chart-responsive chart-aspect-16-9 chart-large" id="peak-hours-heatmap"></div>
               {% else %}
                   <div class="alert alert-warning" role="alert">
                       Not enough data to generate a peak hours heatmap.
@@ -27,8 +27,8 @@
 {% block scripts %}
 <script>
   const heatmapData = '{{ chart_json | safe }}';
-  if (heatmapData && heatmapData.length > 2) {
-      Plotly.newPlot('peak-hours-heatmap', JSON.parse(heatmapData));
-  }
+    if (heatmapData && heatmapData.length > 2) {
+            try { safePlotlyNewPlot('peak-hours-heatmap', JSON.parse(heatmapData)); } catch (e) { console.error(e); }
+    }
 </script>
 {% endblock %}
