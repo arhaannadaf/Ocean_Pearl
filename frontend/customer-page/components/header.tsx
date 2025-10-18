@@ -37,7 +37,7 @@ export default function Header() {
 )}
        <div className="w-full max-w-[1500px] mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
  {/* Logo */}
-            <Link href="/" className="relative w-50 h-28 lg:w-25 lg:h-15 ">
+            <Link href="/" className="relative w-[150px] h-[60px] md:w-[200px] md:h-[50px] sm:w-[150px] sm:h-[40px] ">
               <Image
     src="/static/assets/Ocean_Pearl_Bg.png"
     alt="Ocean Pearl Logo"
