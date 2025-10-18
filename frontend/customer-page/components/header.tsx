@@ -37,12 +37,13 @@ export default function Header() {
 )}
        <div className="w-full max-w-[1500px] mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
  {/* Logo */}
-            <Link href="/" className="relative w-[150px] h-[60px] md:w-[200px] md:h-[50px] sm:w-[150px] sm:h-[40px] ">
+            <Link href="/" className="relative ">
               <Image
     src="/static/assets/Ocean_Pearl_Bg.png"
-    alt="Ocean Pearl Logo"
-    fill
-        className="object-contain"
+    alt="Ocean Pearl Logo" 
+    width={60}          // Mobile default
+    height={12}          // Mobile default
+    className="object-contain sm:w-22 sm:h-10 md:w-30 md:h-14 lg:w-38 lg:h-12"
     priority
   />
             </Link>
