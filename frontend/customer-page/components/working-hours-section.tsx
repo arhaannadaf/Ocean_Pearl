@@ -40,7 +40,7 @@ export default function WorkingHoursSection() {
             </div>
           </div>
 
-          <div className="relative py-20 h-90 w-150 bg-[url('/static/assets/rainy_image.jpeg')] bg-cover bg-center bg-no-repeat rounded-lg">
+          <div className="relative py-20 w-full max-w-[600px] mx-auto bg-[url('/static/assets/rainy_image.jpeg')] bg-cover bg-center bg-no-repeat rounded-lg overflow-hidden">
             <div className="space-y-4">
               <div className="text-center">
                 <h3 className="text-lg font-bold text-gray-300 mb-2">MONDAY TO FRIDAY</h3>
