@@ -54,7 +54,7 @@
     <div class="row">
         <div class="col-12">
             <div class="chart-card">
-                <div id="forecast-chart"></div>
+                <div class="chart-responsive chart-aspect-16-9 chart-large" id="forecast-chart"></div>
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@
 <script>
     const chartJson = '{{ chart_json | safe }}';
     if (chartJson && chartJson !== '{}') {
-        Plotly.newPlot('forecast-chart', JSON.parse(chartJson));
+        try { safePlotlyNewPlot('forecast-chart', JSON.parse(chartJson)); } catch (e) { console.error(e); }
     }
 </script>
 {% endblock %}

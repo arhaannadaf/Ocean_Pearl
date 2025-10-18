@@ -19,20 +19,22 @@
     <div class="col-md col-sm-6"><div class="kpi-card revenue-card"><div>Avg Order Value</div><div class="kpi-value">{{ kpis.avg_order_value }}</div></div></div>
   </div>
   <div class="row g-4">
-    <div class="col-lg-6"><div class="chart-card"><div id="revenue_trend"></div></div></div>
-    <div class="col-lg-6"><div class="chart-card"><div id="revenue_by_category"></div></div></div>
-    <div class="col-lg-6"><div class="chart-card"><div id="profit_by_day"></div></div></div>
-    <div class="col-lg-6"><div class="chart-card"><div id="top_products"></div></div></div>
-    <div class="col-lg-6"><div class="chart-card"><div id="payment_mode"></div></div></div>
+    <div class="col-lg-6"><div class="chart-card"><div class="chart-responsive chart-aspect-16-9" id="revenue_trend"></div></div></div>
+    <div class="col-lg-6"><div class="chart-card"><div class="chart-responsive chart-aspect-16-9" id="revenue_by_category"></div></div></div>
+    <div class="col-lg-6"><div class="chart-card"><div class="chart-responsive chart-aspect-4-3" id="profit_by_day"></div></div></div>
+    <div class="col-lg-6"><div class="chart-card"><div class="chart-responsive chart-aspect-4-3" id="top_products"></div></div></div>
+    <div class="col-lg-6"><div class="chart-card"><div class="chart-responsive chart-aspect-4-3" id="payment_mode"></div></div></div>
   </div>
 {% endblock %}
 
 {% block scripts %}
   <script>
-    if ('{{ charts.revenue_trend | safe }}') Plotly.newPlot("revenue_trend", JSON.parse('{{ charts.revenue_trend | safe }}'));
-    if ('{{ charts.revenue_by_category | safe }}') Plotly.newPlot("revenue_by_category", JSON.parse('{{ charts.revenue_by_category | safe }}'));
-    if ('{{ charts.profit_by_day | safe }}') Plotly.newPlot("profit_by_day", JSON.parse('{{ charts.profit_by_day | safe }}'));
-    if ('{{ charts.top_products | safe }}') Plotly.newPlot("top_products", JSON.parse('{{ charts.top_products | safe }}'));
-    if ('{{ charts.payment_mode | safe }}') Plotly.newPlot("payment_mode", JSON.parse('{{ charts.payment_mode | safe }}'));
+    try {
+      if ('{{ charts.revenue_trend | safe }}') safePlotlyNewPlot('revenue_trend', JSON.parse('{{ charts.revenue_trend | safe }}'));
+      if ('{{ charts.revenue_by_category | safe }}') safePlotlyNewPlot('revenue_by_category', JSON.parse('{{ charts.revenue_by_category | safe }}'));
+      if ('{{ charts.profit_by_day | safe }}') safePlotlyNewPlot('profit_by_day', JSON.parse('{{ charts.profit_by_day | safe }}'));
+      if ('{{ charts.top_products | safe }}') safePlotlyNewPlot('top_products', JSON.parse('{{ charts.top_products | safe }}'));
+      if ('{{ charts.payment_mode | safe }}') safePlotlyNewPlot('payment_mode', JSON.parse('{{ charts.payment_mode | safe }}'));
+    } catch (e) { console.error(e); }
   </script>
 {% endblock %}

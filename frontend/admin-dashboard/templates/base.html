@@ -17,6 +17,27 @@
     .filters { border-radius: 10px; background: var(--bs-body-bg); padding: 15px; box-shadow: 0 3px 6px rgba(0,0,0,0.1); }
     footer { text-align: center; margin-top: 30px; color: var(--bs-secondary-color); }
     .navbar-brand { font-weight: bold; }
+    /* Responsive chart wrapper: keeps charts from overflowing and preserves aspect ratio */
+    .chart-responsive { width: 100%; position: relative; min-height: 260px; }
+    /* Utility to make larger charts (heatmaps, matrices, forecasts) more readable */
+    .chart-large { min-height: 420px; }
+    .chart-responsive > div, .chart-responsive > canvas { /* plotly renders into a div */
+      width: 100% !important;
+      height: 100% !important;
+    }
+    /* Use aspect-ratio where supported to give charts a sensible height on larger screens */
+    .chart-aspect-16-9 { aspect-ratio: 16 / 9; }
+    .chart-aspect-4-3 { aspect-ratio: 4 / 3; }
+    /* Fallback for browsers without aspect-ratio: use padding-top trick */
+    .chart-aspect-16-9.fallback { height: 0; padding-top: 56.25%; }
+    /* Ensure KPI cards compress nicely on small screens */
+    .kpi-value { word-wrap: break-word; }
+    @media (max-width: 576px) {
+      .kpi-value { font-size: 1.25rem; }
+      .navbar .navbar-brand { font-size: 1rem; }
+      .filters .row > [class*="col-"] { margin-bottom: 0.5rem; }
+      .chart-card { padding: 10px; }
+    }
   </style>
   {% block head %}{% endblock %}
 </head>
@@ -70,6 +91,36 @@
         htmlTag.setAttribute("data-bs-theme", newTheme);
         themeToggle.innerHTML = newTheme === "dark" ? '<i class="bi bi-sun"></i>' : '<i class="bi bi-moon-stars"></i>';
     });
+  </script>
+  <script>
+    // Helper: when Plotly charts are rendered, call this to make them resize with their container.
+    function safePlotlyNewPlot(elId, data, layout, config) {
+      try {
+        const el = document.getElementById(elId);
+        if (!el) return;
+        // set responsive config if not already provided
+        config = config || {};
+        config.responsive = true;
+        Plotly.newPlot(elId, data, layout || {}, config).then(function() {
+          // immediate resize to ensure Plotly measures container correctly
+          try { Plotly.Plots.resize(el); } catch (e) { /* ignore */ }
+          // a delayed resize helps when layout engines adjust after render
+          setTimeout(() => { try { Plotly.Plots.resize(el); } catch (e) { /* ignore */ } }, 200);
+          // observe size changes and call Plotly.Plots.resize
+          if (window.ResizeObserver && !el._plotlyResizeObserver) {
+            el._plotlyResizeObserver = new ResizeObserver(() => { Plotly.Plots.resize(el); });
+            el._plotlyResizeObserver.observe(el);
+          }
+        }).catch(console.error);
+      } catch (e) {
+        console.error('Plotly render error for', elId, e);
+      }
+    }
+    // On window resize also trigger a global Plotly resize after debounce
+    (function(){
+      let t;
+      window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(function(){ if (window.Plotly && Plotly.Plots) { document.querySelectorAll('[id^="plotly-"]').forEach(el => Plotly.Plots.resize(el)); } }, 200); });
+    })();
   </script>
   {% block scripts %}{% endblock %}
 </body>

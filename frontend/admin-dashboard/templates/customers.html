@@ -38,12 +38,12 @@
   <div class="row g-4">
     <div class="col-md-6">
       <div class="chart-card">
-        <div id="new_vs_returning_chart"></div>
+        <div class="chart-responsive chart-aspect-4-3" id="new_vs_returning_chart"></div>
       </div>
     </div>
     <div class="col-md-6">
       <div class="chart-card">
-        <div id="customer_spend_dist"></div>
+        <div class="chart-responsive chart-aspect-4-3" id="customer_spend_dist"></div>
       </div>
     </div>
   </div>
@@ -52,11 +52,9 @@
 
 {% block scripts %}
 <script>
-  if ('{{ charts.new_vs_returning_chart | safe }}') {
-    Plotly.newPlot('new_vs_returning_chart', JSON.parse('{{ charts.new_vs_returning_chart | safe }}'));
-  }
-  if ('{{ charts.customer_spend_dist | safe }}') {
-    Plotly.newPlot('customer_spend_dist', JSON.parse('{{ charts.customer_spend_dist | safe }}'));
-  }
+  try {
+    if ('{{ charts.new_vs_returning_chart | safe }}') safePlotlyNewPlot('new_vs_returning_chart', JSON.parse('{{ charts.new_vs_returning_chart | safe }}'));
+    if ('{{ charts.customer_spend_dist | safe }}') safePlotlyNewPlot('customer_spend_dist', JSON.parse('{{ charts.customer_spend_dist | safe }}'));
+  } catch (e) { console.error(e); }
 </script>
 {% endblock %}

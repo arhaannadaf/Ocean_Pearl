@@ -30,7 +30,7 @@
     <div class="row g-4">
         <div class="col-lg-4">
             <div class="chart-card">
-                <div id="sentiment-pie-chart"></div>
+                <div class="chart-responsive chart-aspect-4-3" id="sentiment-pie-chart"></div>
             </div>
         </div>
         <div class="col-lg-8">
@@ -41,12 +41,12 @@
         </div>
         <div class="col-lg-6">
             <div class="chart-card">
-                <div id="positive-dishes-chart"></div>
+                <div class="chart-responsive chart-aspect-4-3" id="positive-dishes-chart"></div>
             </div>
         </div>
         <div class="col-lg-6">
             <div class="chart-card">
-                <div id="negative-dishes-chart"></div>
+                <div class="chart-responsive chart-aspect-4-3" id="negative-dishes-chart"></div>
             </div>
         </div>
     </div>
@@ -83,14 +83,10 @@
 
 {% block scripts %}
 <script>
-    if ('{{ charts.pie_chart | safe }}') {
-        Plotly.newPlot('sentiment-pie-chart', JSON.parse('{{ charts.pie_chart | safe }}'));
-    }
-    if ('{{ charts.positive_dishes_chart | safe }}') {
-        Plotly.newPlot('positive-dishes-chart', JSON.parse('{{ charts.positive_dishes_chart | safe }}'));
-    }
-    if ('{{ charts.negative_dishes_chart | safe }}') {
-        Plotly.newPlot('negative-dishes-chart', JSON.parse('{{ charts.negative_dishes_chart | safe }}'));
-    }
+    try {
+      if ('{{ charts.pie_chart | safe }}') safePlotlyNewPlot('sentiment-pie-chart', JSON.parse('{{ charts.pie_chart | safe }}'));
+      if ('{{ charts.positive_dishes_chart | safe }}') safePlotlyNewPlot('positive-dishes-chart', JSON.parse('{{ charts.positive_dishes_chart | safe }}'));
+      if ('{{ charts.negative_dishes_chart | safe }}') safePlotlyNewPlot('negative-dishes-chart', JSON.parse('{{ charts.negative_dishes_chart | safe }}'));
+    } catch (e) { console.error(e); }
 </script>
 {% endblock %}

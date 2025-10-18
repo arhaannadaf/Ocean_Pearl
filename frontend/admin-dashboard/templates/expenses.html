@@ -25,7 +25,7 @@
     <div class="row mb-4">
         <div class="col-12">
             <div class="chart-card">
-                <div id="cost_composition"></div>
+                <div class="chart-responsive chart-aspect-4-3 chart-large" id="cost_composition"></div>
             </div>
         </div>
     </div>
@@ -84,7 +84,7 @@
     });
 
     if ('{{ charts.cost_composition | safe }}') {
-        Plotly.newPlot('cost_composition', JSON.parse('{{ charts.cost_composition | safe }}'));
+        try { safePlotlyNewPlot('cost_composition', JSON.parse('{{ charts.cost_composition | safe }}')); } catch (e) { console.error(e); }
     }
 </script>
 {% endblock %}

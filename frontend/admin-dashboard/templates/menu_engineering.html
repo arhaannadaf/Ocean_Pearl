@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-10">
             <div class="chart-card p-4">
-                <div id="menu-engineering-chart"></div>
+                <div class="chart-responsive chart-aspect-16-9 chart-large" id="menu-engineering-chart"></div>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
 <script>
     const chartData = '{{ chart_json | safe }}';
     if (chartData && chartData.length > 2) {
-        Plotly.newPlot('menu-engineering-chart', JSON.parse(chartData));
+        try { safePlotlyNewPlot('menu-engineering-chart', JSON.parse(chartData)); } catch (e) { console.error(e); }
     }
 </script>
 {% endblock %}
