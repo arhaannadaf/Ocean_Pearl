@@ -5,7 +5,7 @@ export default function MenuHeroSection() {
     <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <Image src="/seafood-platter-with-crab-and-wine.jpg" alt="Menu Hero Background" fill className="object-cover" priority />
+        <Image src="/static/assets/slide.jpg" alt="Menu Hero Background" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-black/50" />
       </div>
 
