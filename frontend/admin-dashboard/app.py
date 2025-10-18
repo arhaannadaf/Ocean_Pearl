@@ -22,7 +22,7 @@ app = Flask(__name__)
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 # 2. Join this script's directory with the relative path to the CSV file.
-CSV_PATH = os.path.join(script_dir, "..","..", "data", "processed", "Ocean_Pearl_Order_Data_WithCustomer.csv")
+CSV_PATH = os.path.join(script_dir, "data", "processed", "Ocean_Pearl_Order_Data_WithCustomer.csv")
 
 
 # --- 1. Load Models and Preprocessing Objects ---
